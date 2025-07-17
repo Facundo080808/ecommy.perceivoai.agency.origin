@@ -10,27 +10,14 @@ import { useI18n } from "@/lib/i18n/context"
 
 export function Header() {
   const { t } = useI18n()
-  const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const isScrolled = window.scrollY > 10
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled)
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll)
-    return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [scrolled])
+ 
 
   return (
     <motion.header
       className={`sticky top-0 z-50 w-full border-b ${
-        scrolled ? "border-gray-800 bg-black/80" : "border-transparent bg-transparent"
+       "border-transparent bg-transparent"
       } backdrop-blur-sm transition-all duration-300`}
       initial={{ y: 0, opacity: 1 }}
       animate={{ y: 0, opacity: 1 }}
@@ -67,20 +54,20 @@ export function Header() {
               <Link
                 href={item.href}
                 className="text-sm text-gray-300 hover:text-white transition-colors"
-                onClick={(e) => {
-                  e.preventDefault()
-                  const targetElement = document.querySelector(item.href)
-                  if (targetElement) {
-                    const headerOffset = 80
-                    const elementPosition = targetElement.getBoundingClientRect().top
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                // onClick={(e) => {
+                //   e.preventDefault()
+                //   const targetElement = document.querySelector(item.href)
+                //   if (targetElement) {
+                //     const headerOffset = 80
+                //     const elementPosition = targetElement.getBoundingClientRect().top
+                //     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
-                    window.scrollTo({
-                      top: offsetPosition,
-                      behavior: "smooth",
-                    })
-                  }
-                }}
+                //     window.scrollTo({
+                //       top: offsetPosition,
+                //       behavior: "smooth",
+                //     })
+                //   }
+                // }}
               >
                 {item.name}
               </Link>

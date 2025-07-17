@@ -109,19 +109,19 @@ export function ROICalculator() {
     }))
   }
 
-  const scrollToContact = () => {
-    const contactElement = document.querySelector("#contacto")
-    if (contactElement) {
-      const headerOffset = 80
-      const elementPosition = contactElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+  // const scrollToContact = () => {
+  //   const contactElement = document.querySelector("#contacto")
+  //   if (contactElement) {
+  //     const headerOffset = 80
+  //     const elementPosition = contactElement.getBoundingClientRect().top
+  //     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-  }
+  //     window.scrollTo({
+  //       top: offsetPosition,
+  //       behavior: "smooth",
+  //     })
+  //   }
+  // }
 
   // Datos para gráficos
   const chartData = results
@@ -173,7 +173,7 @@ export function ROICalculator() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+        
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -304,7 +304,7 @@ export function ROICalculator() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            
             className="space-y-6"
           >
             <AnimatePresence>
@@ -468,7 +468,7 @@ export function ROICalculator() {
                     className="text-center"
                   >
                     <Button
-                      onClick={scrollToContact}
+                      // onClick={scrollToContact}
                       size="lg"
                       className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
                     >

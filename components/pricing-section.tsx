@@ -5,14 +5,14 @@ import { Check } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { AnimatedCard } from "@/components/ui/animated-card"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
+
 
 export function PricingSection() {
   return (
     <section id="precios" className="py-20 bg-gray-950 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className="container relative z-20">
-        <ScrollReveal>
+
           <div className="text-center mb-16">
             <AnimatedText text="Planes y Precios" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
             <motion.p
@@ -20,12 +20,11 @@ export function PricingSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              viewport={{ once: true }}
+             
             >
               Soluciones flexibles que se adaptan a las necesidades de su negocio
             </motion.p>
           </div>
-        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <AnimatedCard delay={0.1}>
@@ -136,7 +135,7 @@ function PricingCard({
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1, duration: 0.5 }}
-          viewport={{ once: true }}
+          
         >
           {title}
         </motion.h3>
@@ -145,7 +144,7 @@ function PricingCard({
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5, type: "spring" }}
-          viewport={{ once: true }}
+         
         >
           {price}
           <span className="text-sm text-gray-400 font-normal">/mes</span>
@@ -166,7 +165,7 @@ function PricingCard({
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.5 }}
-        viewport={{ once: true }}
+        
       >
         {features.map((feature, index) => (
           <motion.li
@@ -175,7 +174,7 @@ function PricingCard({
             initial={{ opacity: 0, x: -10 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4 + index * 0.1, duration: 0.3 }}
-            viewport={{ once: true }}
+           
           >
             <div className="flex-shrink-0 mt-1">
               <motion.div

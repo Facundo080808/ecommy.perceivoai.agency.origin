@@ -3,7 +3,6 @@
 import { Button } from "@/components/ui/button"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { MessageSquare, Smartphone, Laptop, ShoppingBag, ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n/context"
 import React from "react"
@@ -15,7 +14,7 @@ export function CTASection() {
     <section className="py-20 bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
       <div className="container relative z-20">
-        <ScrollReveal>
+        
           <motion.div
             className="max-w-5xl mx-auto bg-gradient-to-r from-blue-950 to-gray-900 rounded-2xl p-12 relative overflow-hidden"
             whileHover={{ boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)" }}
@@ -45,7 +44,7 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  viewport={{ once: true }}
+                   
                 >
                   {t("cta.subtitle")}
                 </motion.p>
@@ -58,7 +57,7 @@ export function CTASection() {
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
-                      viewport={{ once: true }}
+                       
                       whileHover={{ scale: 1.05, backgroundColor: "rgba(59, 130, 246, 0.3)" }}
                     >
                       {[Smartphone, Laptop, ShoppingBag, MessageSquare][index % 4] && (
@@ -78,7 +77,7 @@ export function CTASection() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.8 }}
-                  viewport={{ once: true }}
+                   
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
                     <Button size="lg" className="bg-blue-600 hover:bg-blue-700 relative overflow-hidden group">
@@ -113,7 +112,7 @@ export function CTASection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                viewport={{ once: true }}
+                 
               >
                 <div className="bg-gray-900/80 backdrop-blur-sm border border-gray-800 rounded-xl overflow-hidden shadow-xl">
                   <div className="border-b border-gray-800 p-3 flex items-center justify-between">
@@ -198,7 +197,7 @@ export function CTASection() {
               </motion.div>
             </div>
           </motion.div>
-        </ScrollReveal>
+        
       </div>
     </section>
   )

@@ -22,16 +22,6 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (history.scrollRestoration) {
-                history.scrollRestoration = 'manual';
-              }
-              window.scrollTo(0, 0);
-            `,
-          }}
-        />
       </head>
       <body className={`${inter.className} bg-black text-white antialiased`}>
         <I18nProvider>

@@ -9,20 +9,6 @@ import { useState } from "react"
 export function FreeTrialSection() {
   const [isHovered, setIsHovered] = useState(false)
 
-  const scrollToContact = () => {
-    const contactElement = document.querySelector("#contacto")
-    if (contactElement) {
-      const headerOffset = 80
-      const elementPosition = contactElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-  }
-
   const features = [
     {
       icon: Code,
@@ -91,7 +77,7 @@ export function FreeTrialSection() {
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              viewport={{ once: true }}
+              
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-full px-4 py-2 mb-6"
             >
               <Sparkles className="h-4 w-4 text-green-400" />
@@ -134,7 +120,7 @@ export function FreeTrialSection() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
-                    viewport={{ once: true }}
+                    
                   >
                     <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-800 p-4 h-full hover:border-blue-500/50 transition-colors">
                       <div className="flex items-start gap-3">
@@ -156,7 +142,7 @@ export function FreeTrialSection() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                viewport={{ once: true }}
+                
                 className="bg-gray-900/30 backdrop-blur-sm border border-gray-800 rounded-xl p-6"
               >
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
@@ -192,7 +178,7 @@ export function FreeTrialSection() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
+            
             >
               <Card className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-xl border-gray-700 p-8 relative overflow-hidden">
                 {/* Glow effect */}
@@ -247,7 +233,7 @@ export function FreeTrialSection() {
                     onHoverEnd={() => setIsHovered(false)}
                   >
                     <Button
-                      onClick={scrollToContact}
+                      // onClick={scrollToContact}
                       size="lg"
                       className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-4 text-lg relative overflow-hidden group"
                     >
@@ -277,7 +263,7 @@ export function FreeTrialSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.5 }}
-            viewport={{ once: true }}
+           
             className="mt-12 text-center"
           >
             <p className="text-gray-400 mb-4">Integración instantánea con:</p>
@@ -288,7 +274,7 @@ export function FreeTrialSection() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 0.6, scale: 1 }}
                   transition={{ delay: 0.9 + index * 0.1, duration: 0.3 }}
-                  viewport={{ once: true }}
+                  
                   whileHover={{ opacity: 1, scale: 1.1 }}
                   className="bg-gray-800/50 border border-gray-700 rounded-lg px-4 py-2 text-sm font-medium text-gray-300"
                 >

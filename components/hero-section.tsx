@@ -12,20 +12,6 @@ export function HeroSection() {
   const { t } = useI18n()
   const [titleComplete, setTitleComplete] = useState(false)
 
-  const scrollToContact = () => {
-    const contactElement = document.querySelector("#contacto")
-    if (contactElement) {
-      const headerOffset = 80
-      const elementPosition = contactElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-  }
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Animated background elements */}
@@ -197,7 +183,7 @@ export function HeroSection() {
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative group">
                 <Button
                   size="lg"
-                  onClick={scrollToContact}
+                  // onClick={scrollToContact}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 relative overflow-hidden group px-8 py-4 text-lg"
                 >
                   <span className="relative z-10 flex items-center gap-2">
@@ -222,7 +208,7 @@ export function HeroSection() {
                 <Button
                   size="lg"
                   variant="outline"
-                  onClick={scrollToContact}
+                  // onClick={scrollToContact}
                   className="border-2 border-blue-500/50 text-white hover:bg-blue-500/10 backdrop-blur-sm px-8 py-4 text-lg bg-transparent"
                 >
                   {t("hero.featuresButton")}

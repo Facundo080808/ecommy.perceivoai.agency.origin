@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import { HeroSection } from "@/components/hero-section"
 import { FreeTrialSection } from "@/components/free-trial-section"
 import { FeaturesSection } from "@/components/features-section"
@@ -19,25 +18,7 @@ import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
 
 export default function Home() {
-  // Forzar el scroll a la parte superior al cargar la página
-  useEffect(() => {
-    // Desactivar la restauración automática del scroll
-    if (typeof window !== "undefined") {
-      if (history.scrollRestoration) {
-        history.scrollRestoration = "manual"
-      }
 
-      // Forzar el scroll a la parte superior
-      window.scrollTo(0, 0)
-
-      // Asegurar que el scroll se resetea incluso después de que los componentes se monten
-      const timer = setTimeout(() => {
-        window.scrollTo(0, 0)
-      }, 0)
-
-      return () => clearTimeout(timer)
-    }
-  }, [])
 
   return (
     <div className="flex min-h-screen flex-col overflow-hidden">

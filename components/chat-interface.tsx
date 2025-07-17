@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { ScrollArea } from "@/components/ui/scroll-area"
+
 import { Separator } from "@/components/ui/separator"
 import { MessageSquare, Plus, ShoppingCart, ChevronRight, X } from "lucide-react"
 import Image from "next/image"
@@ -59,9 +59,7 @@ export function ChatInterface({
     showMessages()
   }, [messages, productRecommendations])
 
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }, [visibleMessages, showRecommendations])
+ 
 
   return (
     <div className="flex h-[600px] w-full bg-gray-900 rounded-lg overflow-hidden">
@@ -81,7 +79,7 @@ export function ChatInterface({
             </motion.div>
           </div>
 
-          <ScrollArea className="h-[calc(600px-64px)] p-2">
+        
             <div className="space-y-2 px-2">
               <p className="text-xs text-gray-500 py-2">Hoy</p>
               {[1, 2, 3].map((i) => (
@@ -123,7 +121,7 @@ export function ChatInterface({
                 </motion.div>
               ))}
             </div>
-          </ScrollArea>
+        
         </motion.div>
       )}
 
@@ -158,7 +156,7 @@ export function ChatInterface({
         </motion.div>
 
         {/* Chat messages */}
-        <ScrollArea className="flex-1 p-4">
+        
           <div className="space-y-6">
             <AnimatePresence>
               {visibleMessages.map((message, i) => (
@@ -245,7 +243,7 @@ export function ChatInterface({
             )}
             <div ref={messagesEndRef} />
           </div>
-        </ScrollArea>
+        
 
         {/* Input area */}
         {!simplified && (
@@ -291,7 +289,7 @@ export function ChatInterface({
                 </motion.div>
               </div>
 
-              <ScrollArea className="h-80 p-4">
+        
                 <div className="space-y-4">
                   {productRecommendations?.map((product, i) => (
                     <motion.div
@@ -329,7 +327,7 @@ export function ChatInterface({
                     </motion.div>
                   ))}
                 </div>
-              </ScrollArea>
+        
 
               <motion.div
                 className="p-4 border-t border-gray-800"

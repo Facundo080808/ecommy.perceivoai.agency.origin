@@ -38,8 +38,8 @@
   /* Asegurar que la página comience desde arriba */
   html,
   body {
-    scroll-padding-top: 80px; /* Ajustar según la altura del header */
-    scroll-behavior: smooth;
+    /* scroll-padding-top: 80px; 
+    scroll-behavior: smooth; */
     height: auto;
     min-height: 100%;
     overflow-x: hidden;

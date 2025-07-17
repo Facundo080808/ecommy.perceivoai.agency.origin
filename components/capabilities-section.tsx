@@ -4,7 +4,6 @@ import React from "react"
 
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ThumbsUp, BarChart2, MessageSquare, Truck } from "lucide-react"
 
 export function CapabilitiesSection() {
@@ -40,7 +39,7 @@ export function CapabilitiesSection() {
       />
 
       <div className="container relative z-20 overflow-hidden">
-        <ScrollReveal>
+        
           <div className="text-center mb-16">
             <AnimatedText text="Capacidades" className="text-3xl md:text-5xl font-bold mb-4" as="h2" />
             <motion.p
@@ -48,13 +47,12 @@ export function CapabilitiesSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              viewport={{ once: true }}
+              
             >
               Descubra todo lo que nuestros agentes AI pueden hacer por su tienda online
             </motion.p>
           </div>
-        </ScrollReveal>
-
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-visible">
           {[
             {
@@ -86,14 +84,15 @@ export function CapabilitiesSection() {
               delay: 0.4,
             },
           ].map((capability, index) => (
-            <ScrollReveal key={index} delay={capability.delay}>
+        
               <CapabilityCard
+                key={index}
                 title={capability.title}
                 description={capability.description}
                 icon={<capability.icon />}
                 colorClass={capability.color}
               />
-            </ScrollReveal>
+        
           ))}
         </div>
 
@@ -102,7 +101,7 @@ export function CapabilitiesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          viewport={{ once: true }}
+       
         >
           <p className="text-gray-400 mb-6">
             Nuestros agentes AI aprenden continuamente para ofrecer una experiencia cada vez más personalizada
@@ -162,7 +161,9 @@ function CapabilityCard({ title, description, icon, colorClass }: CapabilityCard
             whileHover={{ rotate: 10, scale: 1.1 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            {React.cloneElement(icon as React.ReactElement, { className: "h-6 w-6 text-white" })}
+            {React.cloneElement(icon as React.ReactElement, 
+              // { className: "h-6 w-6 text-white" }
+              )}
           </motion.div>
 
           <motion.div
@@ -177,7 +178,7 @@ function CapabilityCard({ title, description, icon, colorClass }: CapabilityCard
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          viewport={{ once: true }}
+         
         >
           {title}
         </motion.h3>
@@ -187,7 +188,7 @@ function CapabilityCard({ title, description, icon, colorClass }: CapabilityCard
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
-          viewport={{ once: true }}
+          
         >
           {description}
         </motion.p>
@@ -196,7 +197,7 @@ function CapabilityCard({ title, description, icon, colorClass }: CapabilityCard
           className="mt-auto pt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           initial={{ y: 10 }}
           whileInView={{ y: 0 }}
-          viewport={{ once: true }}
+        
         >
           <div className={`h-0.5 w-full bg-gradient-to-r ${colorClass} rounded-full`} />
         </motion.div>

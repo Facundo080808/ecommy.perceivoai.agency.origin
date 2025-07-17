@@ -5,19 +5,19 @@ import { ArrowRight, MessageSquare, ShieldCheck, Zap, Users, Code, BarChart3, Tr
 import { motion } from "framer-motion"
 
 export function SecondaryHeroSection() {
-  const scrollToContact = () => {
-    const contactElement = document.querySelector("#contacto")
-    if (contactElement) {
-      const headerOffset = 80
-      const elementPosition = contactElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+  // const scrollToContact = () => {
+  //   const contactElement = document.querySelector("#contacto")
+  //   if (contactElement) {
+  //     const headerOffset = 80
+  //     const elementPosition = contactElement.getBoundingClientRect().top
+  //     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      })
-    }
-  }
+  //     window.scrollTo({
+  //       top: offsetPosition,
+  //       behavior: "smooth",
+  //     })
+  //   }
+  // }
 
   return (
     <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
@@ -35,7 +35,7 @@ export function SecondaryHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+            
           >
             <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
@@ -56,7 +56,7 @@ export function SecondaryHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            viewport={{ once: true }}
+           
             className="flex flex-wrap justify-center gap-4 mb-10"
           >
             {[
@@ -86,12 +86,12 @@ export function SecondaryHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            viewport={{ once: true }}
+            
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                onClick={scrollToContact}
+                // onClick={scrollToContact}
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
               >
@@ -110,7 +110,7 @@ export function SecondaryHeroSection() {
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
-                onClick={scrollToContact}
+                // onClick={scrollToContact}
                 size="lg"
                 variant="outline"
                 className="border-2 border-gray-600 text-white hover:bg-gray-800/50 backdrop-blur-sm px-8 py-4 text-lg bg-transparent"
@@ -125,7 +125,7 @@ export function SecondaryHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            viewport={{ once: true }}
+           
             className="bg-gradient-to-r from-gray-900/50 to-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-6 mb-12"
           >
             <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center gap-2">
@@ -171,7 +171,7 @@ export function SecondaryHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
-            viewport={{ once: true }}
+             
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {[
@@ -185,7 +185,7 @@ export function SecondaryHeroSection() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 1.1 + index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
+                 
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-xl p-4 text-center"
               >

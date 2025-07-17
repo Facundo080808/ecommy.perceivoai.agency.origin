@@ -6,7 +6,6 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion, AnimatePresence } from "framer-motion"
-import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { ArrowRight, Check, MessageSquare, ExternalLink } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
@@ -123,7 +122,7 @@ Gracias por su tiempo.
       />
 
       <div className="container relative z-20">
-        <ScrollReveal>
+        
           <div className="text-center mb-12">
             <AnimatedText text={t("contact.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
             <motion.p
@@ -131,20 +130,19 @@ Gracias por su tiempo.
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              viewport={{ once: true }}
+               
             >
               {t("contact.subtitle")}
             </motion.p>
           </div>
-        </ScrollReveal>
-
+        
         <div className="max-w-3xl mx-auto">
           <motion.div
             className="bg-gray-900 border border-gray-800 rounded-xl shadow-xl overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            viewport={{ once: true }}
+             
           >
             <div className="p-8">
               <AnimatePresence mode="wait">
