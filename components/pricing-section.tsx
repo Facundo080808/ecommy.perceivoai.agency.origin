@@ -62,9 +62,9 @@ export function PricingSection() {
               features={[
                 "Duración: 1 mes (renovable automáticamente)",
                 "8 horas/mes de soporte incluidas",
-                "Tarifa extra por hora: 0,7 UF/hora neto",
+                
                 "SLA de respuesta: 6 horas desde la recepción",
-                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -4)",
+                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -3)",
                 "Token LLM",
                 "base de datos",
                 "Embedding",
@@ -108,9 +108,9 @@ export function PricingSection() {
               features={[
                 "Duración: 1 mes (renovable automáticamente)",
                 "8 horas/mes de soporte incluidas",
-                "Tarifa extra por hora: 0,7 UF/hora neto",
+            
                 "SLA de respuesta: 6 horas desde la recepción",
-                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -4)",
+                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -3)",
                 "Token LLM",
                 "base de datos",
                 "Embedding",
