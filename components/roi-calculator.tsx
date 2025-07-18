@@ -457,6 +457,18 @@ export function ROICalculator() {
                         <span className="text-gray-400">Ahorro soporte (60% automatizado):</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
                       </div>
+                       <div className="flex justify-between">
+                        <span className="text-gray-400">AI_Conversion_Uplift(12%):</span>
+                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
+                      </div>
+                       <div className="flex justify-between">
+                        <span className="text-gray-400">AI_Ticket_Resolution_Rate(66%):</span>
+                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
+                      </div>
+                       <div className="flex justify-between">
+                        <span className="text-gray-400">AI_AOV_Increase (5% )</span>
+                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
+                      </div>
                     </div>
                   </Card>
 

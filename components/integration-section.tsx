@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button"
 
 export function IntegrationSection() {
   return (
-    <section className="py-20 bg-black relative overflow-hidden">
+    <section className="py-20 bg-black relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
-
+      
       {/* Círculos de fondo animados */}
       <motion.div
         className="absolute top-40 right-20 w-64 h-64 rounded-full bg-blue-900/10 blur-3xl"
@@ -26,7 +26,7 @@ export function IntegrationSection() {
         }}
       />
 
-      <div className="container relative z-20">
+      <div className="container relative z-20 overflow-clip">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
             <div>
@@ -84,20 +84,20 @@ export function IntegrationSection() {
               {[
                 {
                   step: "01",
-                  title: "Conecta tu plataforma",
-                  description: "Integración sencilla con tu tienda online existente mediante API o plugins.",
+                  title: "Conectamos tu plataforma",
+                  description: "Integramos tu tienda online existente mediante API.",
                   delay: 0.1,
                 },
                 {
                   step: "02",
-                  title: "Personaliza tu asistente",
-                  description: "Configura el comportamiento y apariencia de tu agente AI según tus necesidades.",
+                  title: "Personalizamos tu asistente",
+                  description: "Configuramos el comportamiento y apariencia de tu agente AI según tus necesidades.",
                   delay: 0.3,
                 },
                 {
                   step: "03",
-                  title: "Activa y monitorea",
-                  description: "Lanza tu asistente y analiza su rendimiento en tiempo real.",
+                  title: "Activamos y monitoreamos",
+                  description: "Lanzamos tu asistente personalizado y analizamos su rendimiento en tiempo real.",
                   delay: 0.5,
                 },
               ].map((item, index) => (
@@ -129,8 +129,7 @@ export function IntegrationSection() {
                 
               >
                 <p className="text-sm text-gray-400">
-                  ¿Necesitas ayuda con la integración? Nuestro equipo de soporte está disponible 24/7 para asistirte en
-                  todo el proceso.
+                  ¿Necesitas ayuda con la integración? Nuestro equipo de soporte está disponible 09:00 a 19:00 (-3 GTM)  para asistirte en todo el proceso.
                 </p>
               </motion.div>
             </motion.div>

@@ -43,8 +43,10 @@ export default function Home() {
         <div id="beneficios">
           <BenefitsSection />
         </div>
-        <IntegrationSection />
-        <ROICalculator />
+       
+          <IntegrationSection />
+          <ROICalculator />
+       
         <div id="precios">
           <PricingSection />
         </div>

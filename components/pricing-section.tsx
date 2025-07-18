@@ -9,9 +9,9 @@ import { motion } from "framer-motion"
 
 export function PricingSection() {
   return (
-    <section id="precios" className="py-20 bg-gray-950 relative overflow-hidden">
+    <section id="precios" className="py-20 bg-gray-950 relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
-      <div className="container relative z-20">
+      <div className=" relative z-20">
 
           <div className="text-center mb-16">
             <AnimatedText text="Planes y Precios" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />

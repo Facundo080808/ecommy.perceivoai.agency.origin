@@ -33,7 +33,7 @@ export function FreeTrialSection() {
   ]
 
   return (
-    <section className="py-16 bg-gradient-to-r from-blue-950 via-gray-900 to-purple-950 relative overflow-hidden">
+    <section className="py-16 bg-gradient-to-r from-blue-950 via-gray-900 to-purple-950 relative h-auto">
       {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl animate-pulse" />
@@ -41,7 +41,7 @@ export function FreeTrialSection() {
       </div>
 
       {/* Animated particles */}
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="absolute inset-0 ">
         {Array.from({ length: 20 }).map((_, i) => (
           <motion.div
             key={i}
@@ -63,7 +63,7 @@ export function FreeTrialSection() {
         ))}
       </div>
 
-      <div className="container relative z-10">
+      <div className="container z-10 overflow-clip">
         <div className="max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -151,10 +151,9 @@ export function FreeTrialSection() {
                 </h3>
                 <ul className="space-y-2">
                   {[
-                    "Hasta 1,000 conversaciones con AI",
-                    "Integración completa con tu plataforma",
-                    "Dashboard de analytics en tiempo real",
-                    "Soporte técnico prioritario",
+                    "Hasta 100 conversaciones con AI",
+                    "Integración completa con tu plataforma: API plataformas de eCommerce y tracking",
+                    "Soporte técnico 09:00 a 18:30 (-3 GTM)", 
                     "Configuración personalizada",
                   ].map((item, index) => (
                     <motion.li

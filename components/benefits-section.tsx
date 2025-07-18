@@ -19,7 +19,6 @@ export function BenefitsSection() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              
             >
               Ventajas para su negocio y para sus clientes
             </motion.p>

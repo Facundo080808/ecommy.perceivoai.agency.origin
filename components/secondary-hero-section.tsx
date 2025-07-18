@@ -20,7 +20,7 @@ export function SecondaryHeroSection() {
   // }
 
   return (
-    <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
 
       {/* Background effects */}
@@ -29,7 +29,7 @@ export function SecondaryHeroSection() {
         <div className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-green-500/10 blur-3xl animate-pulse" />
       </div>
 
-      <div className="container relative z-20">
+      <div className=" relative z-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

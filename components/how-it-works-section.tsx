@@ -7,9 +7,9 @@ import { motion } from "framer-motion"
 
 export function HowItWorksSection() {
   return (
-    <section id="como-funciona" className="py-20 bg-black relative overflow-hidden">
+    <section id="como-funciona" className="py-20 bg-black relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
-      <div className="container relative z-20">
+      <div className=" relative z-20">
 
           <div className="text-center mb-16">
             <AnimatedText text="Cómo Funciona" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
