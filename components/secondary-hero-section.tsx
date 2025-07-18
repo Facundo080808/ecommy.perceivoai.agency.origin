@@ -60,7 +60,7 @@ export function SecondaryHeroSection() {
             className="flex flex-wrap justify-center gap-4 mb-10"
           >
             {[
-              { icon: Zap, text: "Implementación en menos de 24 horas" },
+              { icon: Zap, text: "Implementación en menos de 7 diás habiles" },
               { icon: ShieldCheck, text: "Garantía de satisfacción de 30 días" },
               { icon: MessageSquare, text: "Soporte técnico personalizado" },
               { icon: Users, text: "Más de 500 clientes satisfechos" },

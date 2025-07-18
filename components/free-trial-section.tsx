@@ -204,7 +204,7 @@ export function FreeTrialSection() {
                   {/* Benefits */}
                   <div className="space-y-4 mb-8">
                     {[
-                      { icon: Zap, text: "Configuración en menos de 5 minutos" },
+                      { icon: Zap, text: "Configuración en menos de 7 dias hábiles" },
                       { icon: Shield, text: "Sin tarjeta de crédito requerida" },
                       { icon: CheckCircle, text: "Cancela en cualquier momento" },
                     ].map((benefit, index) => (
