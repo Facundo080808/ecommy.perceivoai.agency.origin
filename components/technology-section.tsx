@@ -4,16 +4,18 @@ import type React from "react"
 import { Brain, Search, Sparkles, Filter, Truck } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
+import { useI18n } from "@/lib/i18n/context"
 
 
 export function TechnologySection() {
+  const { t } = useI18n()
   return (
     <section id="tecnologia" className="py-20 bg-gray-950 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className="container relative z-20">
         
           <div className="text-center mb-16">
-            <AnimatedText text="Tecnología Avanzada" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
+            <AnimatedText text={t("technology_section.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
             <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
@@ -21,39 +23,39 @@ export function TechnologySection() {
               transition={{ delay: 0.3, duration: 0.8 }}
               
             >
-              Potenciado por los últimos avances en inteligencia artificial y procesamiento del lenguaje natural
+              {t("technology_section.subtitle")}
             </motion.p>
           </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <TechCard
                 icon={<Brain className="h-10 w-10 text-blue-500" />}
-                title="Modelo de Lenguaje Contextual"
-                description="Comprende el contexto y la intención detrás de las consultas de los usuarios para ofrecer respuestas precisas."
+                title={t("technology_section.items[0].title")}
+                description={t("technology_section.items[0].description")}
               />
         
               <TechCard
                 icon={<Search className="h-10 w-10 text-blue-500" />}
-                title="Motor de Búsqueda Semántica"
-                description="Va más allá de las palabras clave para entender el significado y la intención de las búsquedas."
+                title={t("technology_section.items[1].title")}
+                description={t("technology_section.items[1].description")}
               />
         
               <TechCard
                 icon={<Sparkles className="h-10 w-10 text-blue-500" />}
-                title="Sistema de Recomendación Híbrido"
-                description="Combina análisis de comportamiento y preferencias para ofrecer recomendaciones personalizadas."
+                title={t("technology_section.items[2].title")}
+                description={t("technology_section.items[2].description")}
               />
         
               <TechCard
                 icon={<Filter className="h-10 w-10 text-blue-500" />}
-                title="Búsqueda Avanzada de Productos"
-                description="Filtrado inteligente que ayuda a los usuarios a encontrar exactamente lo que buscan."
+                title={t("technology_section.items[3].title")}
+                description={t("technology_section.items[3].description")}
               />
         
               <TechCard
                 icon={<Truck className="h-10 w-10 text-blue-500" />}
-                title="Integración API de Tracking"
-                description="Conexión en tiempo real con proveedores de envío para seguimiento de pedidos actualizado."
+                title={t("technology_section.items[4].title")}
+                description={t("technology_section.items[4].description")}
               />
         </div>
       </div>

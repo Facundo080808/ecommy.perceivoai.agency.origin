@@ -109,21 +109,7 @@ export function ROICalculator() {
     }))
   }
 
-  // const scrollToContact = () => {
-  //   const contactElement = document.querySelector("#contacto")
-  //   if (contactElement) {
-  //     const headerOffset = 80
-  //     const elementPosition = contactElement.getBoundingClientRect().top
-  //     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-  //     window.scrollTo({
-  //       top: offsetPosition,
-  //       behavior: "smooth",
-  //     })
-  //   }
-  // }
-
-  // Datos para gráficos
+  
   const chartData = results
     ? [
         {
@@ -446,7 +432,7 @@ export function ROICalculator() {
                         <span className="text-green-400 font-medium">{formatCurrency(results.conversionAI)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Mejora por conversión (+15%):</span>
+                        <span className="text-gray-400">Mejora por conversión (+12%):</span>
                         <span className="text-blue-400 font-medium">{formatCurrency(results.gainConversion)}</span>
                       </div>
                       <div className="flex justify-between">
@@ -461,14 +447,14 @@ export function ROICalculator() {
                         <span className="text-gray-400">AI_Conversion_Uplift(12%):</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
                       </div>
-                       <div className="flex justify-between">
+                       {/* <div className="flex justify-between">
                         <span className="text-gray-400">AI_Ticket_Resolution_Rate(66%):</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
                       </div>
                        <div className="flex justify-between">
                         <span className="text-gray-400">AI_AOV_Increase (5% )</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
-                      </div>
+                      </div> */}
                     </div>
                   </Card>
 

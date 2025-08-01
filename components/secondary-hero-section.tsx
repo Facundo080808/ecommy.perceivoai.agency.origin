@@ -3,22 +3,10 @@
 import { Button } from "@/components/ui/button"
 import { ArrowRight, MessageSquare, ShieldCheck, Zap, Users, Code, BarChart3, Truck } from "lucide-react"
 import { motion } from "framer-motion"
+import { useI18n } from "@/lib/i18n/context"
 
 export function SecondaryHeroSection() {
-  // const scrollToContact = () => {
-  //   const contactElement = document.querySelector("#contacto")
-  //   if (contactElement) {
-  //     const headerOffset = 80
-  //     const elementPosition = contactElement.getBoundingClientRect().top
-  //     const offsetPosition = elementPosition + window.pageYOffset - headerOffset
-
-  //     window.scrollTo({
-  //       top: offsetPosition,
-  //       behavior: "smooth",
-  //     })
-  //   }
-  // }
-
+  const {t} = useI18n()
   return (
     <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-black relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
@@ -39,7 +27,7 @@ export function SecondaryHeroSection() {
           >
             <h2 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Transforma la experiencia de tus clientes
+                {t("secondary_hero_section.title")}
               </span>
               <span className="bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent block mt-2">
                 hoy mismo
@@ -47,8 +35,7 @@ export function SecondaryHeroSection() {
             </h2>
 
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Únete a las empresas líderes que ya están aprovechando el poder de la inteligencia artificial para
-              revolucionar su eCommerce.
+              {t("secondary_hero_section.subtitle")}
             </p>
           </motion.div>
 
@@ -60,10 +47,10 @@ export function SecondaryHeroSection() {
             className="flex flex-wrap justify-center gap-4 mb-10"
           >
             {[
-              { icon: Zap, text: "Implementación en menos de 7 diás habiles" },
-              { icon: ShieldCheck, text: "Garantía de satisfacción de 30 días" },
-              { icon: MessageSquare, text: "Soporte técnico personalizado" },
-              { icon: Users, text: "Más de 500 clientes satisfechos" },
+              { icon: Zap, text: t("secondary_hero_section.highlights[0]") },
+              { icon: ShieldCheck, text:  t("secondary_hero_section.highlights[1]") },
+              { icon: MessageSquare, text:  t("secondary_hero_section.highlights[2]") },
+              { icon: Users, text:  t("secondary_hero_section.highlights[3]") },
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -96,7 +83,7 @@ export function SecondaryHeroSection() {
                 className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center gap-2">
-                  Pruébalo 7 días - Solo API
+                  { t("secondary_hero_section.ctaPrimary.text")}
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <motion.div
@@ -115,7 +102,7 @@ export function SecondaryHeroSection() {
                 variant="outline"
                 className="border-2 border-gray-600 text-white hover:bg-gray-800/50 backdrop-blur-sm px-8 py-4 text-lg bg-transparent"
               >
-                Hablar con un experto
+                { t("secondary_hero_section.ctaSecondary.text")}
               </Button>
             </motion.div>
           </motion.div>
@@ -130,7 +117,7 @@ export function SecondaryHeroSection() {
           >
             <h3 className="text-xl font-bold text-white mb-4 flex items-center justify-center gap-2">
               <Code className="h-6 w-6 text-blue-400" />
-              Acceso completo a plataformas de eCommerce y tracking
+             { t("secondary_hero_section.apiFeaturesTitle")}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <motion.div
@@ -139,8 +126,8 @@ export function SecondaryHeroSection() {
               >
                 <BarChart3 className="h-8 w-8 text-blue-400" />
                 <div>
-                  <h4 className="font-semibold text-white">eCommerce APIs</h4>
-                  <p className="text-sm text-gray-400">Shopify, WooCommerce, Magento</p>
+                  <h4 className="font-semibold text-white">{ t("secondary_hero_section.apiFeatures[0].title")}</h4>
+                  <p className="text-sm text-gray-400">{ t("secondary_hero_section.apiFeatures[0].description")}</p>
                 </div>
               </motion.div>
               <motion.div
@@ -149,8 +136,8 @@ export function SecondaryHeroSection() {
               >
                 <Truck className="h-8 w-8 text-green-400" />
                 <div>
-                  <h4 className="font-semibold text-white">Tracking APIs</h4>
-                  <p className="text-sm text-gray-400">DHL, FedEx, UPS, Correos</p>
+                  <h4 className="font-semibold text-white">{ t("secondary_hero_section.apiFeatures[1].title")}</h4>
+                  <p className="text-sm text-gray-400">{ t("secondary_hero_section.apiFeatures[1].description")}</p>
                 </div>
               </motion.div>
               <motion.div
@@ -159,8 +146,8 @@ export function SecondaryHeroSection() {
               >
                 <Code className="h-8 w-8 text-purple-400" />
                 <div>
-                  <h4 className="font-semibold text-white">API Completa</h4>
-                  <p className="text-sm text-gray-400">Documentación y SDKs</p>
+                  <h4 className="font-semibold text-white">{ t("secondary_hero_section.apiFeatures[2].title")}</h4>
+                  <p className="text-sm text-gray-400">{ t("secondary_hero_section.apiFeatures[2].description")}</p>
                 </div>
               </motion.div>
             </div>
@@ -175,10 +162,10 @@ export function SecondaryHeroSection() {
             className="grid grid-cols-2 md:grid-cols-4 gap-4"
           >
             {[
-              { value: "98%", label: "Satisfacción" },
-              { value: "35%", label: "Aumento en conversiones" },
-              { value: "24/7", label: "Soporte disponible" },
-              { value: "500+", label: "Clientes activos" },
+              { value: "98%", label: t("secondary_hero_section.stats[0].label") },
+              { value: "35%", label:  t("secondary_hero_section.stats[1].label")  },
+              { value: "24/7", label:  t("secondary_hero_section.stats[2].label")  },
+              { value: "500+", label:  t("secondary_hero_section.stats[3].label")  },
             ].map((stat, index) => (
               <motion.div
                 key={index}

@@ -5,8 +5,10 @@ import React from "react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
 import { ThumbsUp, BarChart2, MessageSquare, Truck } from "lucide-react"
+import { useI18n } from "@/lib/i18n/context"
 
 export function CapabilitiesSection() {
+  const {t} = useI18n()
   return (
     <section id="capacidades" className="py-20 bg-black relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
@@ -41,7 +43,7 @@ export function CapabilitiesSection() {
       <div className="container relative z-20 overflow-hidden">
         
           <div className="text-center mb-16">
-            <AnimatedText text="Capacidades" className="text-3xl md:text-5xl font-bold mb-4" as="h2" />
+            <AnimatedText text={t("capabilities_section.title")} className="text-3xl md:text-5xl font-bold mb-4" as="h2" />
             <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
@@ -49,36 +51,36 @@ export function CapabilitiesSection() {
               transition={{ delay: 0.3, duration: 0.8 }}
               
             >
-              Descubra todo lo que nuestros agentes AI pueden hacer por su tienda online
+              {t("capabilities_section.subtitle")}
             </motion.p>
           </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 overflow-visible">
           {[
             {
-              title: "Recomendaciones Personalizadas",
-              description: "Sugerencias basadas en preferencias y comportamiento del usuario.",
+              title: t("capabilities_section.capabilities[0].title"),
+              description: t("capabilities_section.capabilities[0].description"),
               icon: ThumbsUp,
               color: "from-blue-600 to-blue-400",
               delay: 0.1,
             },
             {
-              title: "Comparación Inteligente",
-              description: "Análisis lado a lado de productos para facilitar decisiones.",
+              title: t("capabilities_section.capabilities[1].title"),
+              description: t("capabilities_section.capabilities[1].description"),
               icon: BarChart2,
               color: "from-indigo-600 to-indigo-400",
               delay: 0.2,
             },
             {
-              title: "Asistente Conversacional",
-              description: "Interacción natural que guía el proceso de compra.",
+              title: t("capabilities_section.capabilities[2].title"),
+              description: t("capabilities_section.capabilities[2].description"),
               icon: MessageSquare,
               color: "from-purple-600 to-purple-400",
               delay: 0.3,
             },
             {
-              title: "Seguimiento de Envíos",
-              description: "Información en tiempo real sobre el estado de pedidos.",
+              title: t("capabilities_section.capabilities[3].title"),
+              description: t("capabilities_section.capabilities[3].description"),
               icon: Truck,
               color: "from-cyan-600 to-cyan-400",
               delay: 0.4,
@@ -104,7 +106,7 @@ export function CapabilitiesSection() {
        
         >
           <p className="text-gray-400 mb-6">
-            Nuestros agentes AI aprenden continuamente para ofrecer una experiencia cada vez más personalizada
+            {t("capabilities_section.footerText")}
           </p>
           <div className="flex justify-center gap-2">
             <motion.div

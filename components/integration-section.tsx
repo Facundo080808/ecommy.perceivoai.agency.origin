@@ -6,8 +6,10 @@ import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
 import { ShoppingBag, Package, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useI18n } from "@/lib/i18n/context"
 
 export function IntegrationSection() {
+  const { t } = useI18n()
   return (
     <section className="py-20 bg-black relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-gray-950 to-transparent z-10"></div>
@@ -30,7 +32,7 @@ export function IntegrationSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
             <div>
-              <AnimatedText text="Integraciones" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
+              <AnimatedText text={t("integration_section.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
               <motion.p
                 className="text-xl text-gray-400 mb-8"
                 initial={{ opacity: 0, y: 20 }}
@@ -38,21 +40,21 @@ export function IntegrationSection() {
                 transition={{ delay: 0.3, duration: 0.8 }}
                 
               >
-                Compatible con las principales plataformas de eCommerce y servicios de envío
+                {t("integration_section.subtitle")}
               </motion.p>
 
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <IntegrationCategory
-                  title="Plataformas eCommerce"
+                  title={t("integration_section.categories.ecommerce.title")}
                   icon={<ShoppingBag className="h-5 w-5 text-blue-500" />}
-                  platforms={["Shopify", "WooCommerce", "Magento", "PrestaShop", "Jumpseller", "BigCommerce"]}
+                  platforms={t("integration_section.categories.ecommerce.platforms")}
                   delay={0.1}
                 />
 
                 <IntegrationCategory
-                  title="Servicios de Envío"
+                  title={t("integration_section.categories.shipping.title")}
                   icon={<Package className="h-5 w-5 text-blue-500" />}
-                  platforms={["DHL", "FedEx", "UPS", "Correos", "Blue envíos", "GLS"]}
+                  platforms={t("integration_section.categories.shipping.platforms")}
                   delay={0.3}
                 />
               </div>
@@ -65,7 +67,7 @@ export function IntegrationSection() {
               >
                 <Button className="bg-blue-600 hover:bg-blue-700 group">
                   <span className="flex items-center gap-2">
-                    Ver todas las integraciones
+                    {t("integration_section.cta")}
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Button>
@@ -79,25 +81,25 @@ export function IntegrationSection() {
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
 
-              <h3 className="text-xl font-bold mb-6">Integración en 3 simples pasos</h3>
+              <h3 className="text-xl font-bold mb-6">{t("integration_section.stepsTitle")}</h3>
 
               {[
                 {
                   step: "01",
-                  title: "Conectamos tu plataforma",
-                  description: "Integramos tu tienda online existente mediante API.",
+                  title: t("integration_section.steps[0].title"),
+                  description: t("integration_section.steps[0].description"),
                   delay: 0.1,
                 },
                 {
                   step: "02",
-                  title: "Personalizamos tu asistente",
-                  description: "Configuramos el comportamiento y apariencia de tu agente AI según tus necesidades.",
+                  title: t("integration_section.steps[1].title"),
+                  description: t("integration_section.steps[1].description"),
                   delay: 0.3,
                 },
                 {
                   step: "03",
-                  title: "Activamos y monitoreamos",
-                  description: "Lanzamos tu asistente personalizado y analizamos su rendimiento en tiempo real.",
+                  title: t("integration_section.steps[2].title"),
+                  description: t("integration_section.steps[2].description"),
                   delay: 0.5,
                 },
               ].map((item, index) => (
@@ -129,7 +131,7 @@ export function IntegrationSection() {
                 
               >
                 <p className="text-sm text-gray-400">
-                  ¿Necesitas ayuda con la integración? Nuestro equipo de soporte está disponible 09:00 a 19:00 (-3 GTM)  para asistirte en todo el proceso.
+                  {t("integration_section.support")}
                 </p>
               </motion.div>
             </motion.div>
@@ -138,7 +140,7 @@ export function IntegrationSection() {
 
         
           <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {["Shopify", "WooCommerce", "Magento", "DHL", "FedEx", "UPS"].map((name, index) => (
+            {Array.isArray(t("integration_section.highlights"))&& t("integration_section.highlights").map((name:string, index:number) => (
               <motion.div
                 key={index}
                 className="bg-gray-900 border border-gray-800 rounded-lg p-4 flex items-center justify-center h-16"

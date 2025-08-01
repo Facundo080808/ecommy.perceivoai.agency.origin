@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-
+// import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { MessageSquare, Plus, ShoppingCart, ChevronRight, X } from "lucide-react"
 import Image from "next/image"
@@ -59,7 +59,9 @@ export function ChatInterface({
     showMessages()
   }, [messages, productRecommendations])
 
- 
+  // useEffect(() => {
+  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  // }, [visibleMessages, showRecommendations])
 
   return (
     <div className="flex h-[600px] w-full bg-gray-900 rounded-lg overflow-hidden">
@@ -121,7 +123,7 @@ export function ChatInterface({
                 </motion.div>
               ))}
             </div>
-        
+         
         </motion.div>
       )}
 
@@ -289,7 +291,6 @@ export function ChatInterface({
                 </motion.div>
               </div>
 
-        
                 <div className="space-y-4">
                   {productRecommendations?.map((product, i) => (
                     <motion.div
@@ -327,7 +328,7 @@ export function ChatInterface({
                     </motion.div>
                   ))}
                 </div>
-        
+              
 
               <motion.div
                 className="p-4 border-t border-gray-800"

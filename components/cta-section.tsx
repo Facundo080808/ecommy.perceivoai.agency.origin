@@ -35,7 +35,7 @@ export function CTASection() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
               <div>
                 <AnimatedText
-                  text={t("cta.title")}
+                  text={t("cta_section.title")}
                   className="text-3xl md:text-4xl font-bold mb-4 relative z-10"
                   as="h2"
                 />
@@ -46,11 +46,11 @@ export function CTASection() {
                   transition={{ delay: 0.3, duration: 0.8 }}
                    
                 >
-                  {t("cta.subtitle")}
+                  {t("cta_section.subtitle")}
                 </motion.p>
 
                 <div className="flex flex-wrap gap-4 mb-8">
-                  {(t("cta.platforms") as string[]).map((text, index) => (
+                  {(t("cta_section.platforms") as string[]).map((text, index) => (
                     <motion.div
                       key={index}
                       className="flex items-center gap-2 bg-blue-900/30 px-3 py-2 rounded-full"
@@ -82,7 +82,7 @@ export function CTASection() {
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
                     <Button size="lg" className="bg-blue-600 hover:bg-blue-700 relative overflow-hidden group">
                       <span className="relative z-10 flex items-center gap-2">
-                        {t("cta.button")}
+                        {t("cta_section.button")}
                         <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <motion.span
@@ -95,7 +95,7 @@ export function CTASection() {
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
                     <Button size="lg" variant="outline" className="relative overflow-hidden group">
-                      <span className="relative z-10">{t("cta.demoButton")}</span>
+                      <span className="relative z-10">{t("cta_section.demoButton")}</span>
                       <motion.span
                         className="absolute inset-0 bg-white/10"
                         initial={{ x: "-100%" }}
@@ -120,7 +120,7 @@ export function CTASection() {
                       <div className="bg-blue-600 p-1.5 rounded-md">
                         <MessageSquare className="h-4 w-4 text-white" />
                       </div>
-                      <span className="text-sm font-medium">Asistente AI</span>
+                      <span className="text-sm font-medium">AI Assistant</span>
                     </div>
                     <div className="flex gap-1.5">
                       <div className="h-2.5 w-2.5 rounded-full bg-gray-700"></div>
@@ -132,30 +132,28 @@ export function CTASection() {
                   <div className="p-4 space-y-3">
                     <div className="flex justify-end">
                       <div className="bg-blue-600 text-white text-sm rounded-lg rounded-tr-none p-3 max-w-[80%]">
-                        Busco una cámara para fotografía de paisajes
+                        {t("cta_section.chat_demo.user1")}
                       </div>
                     </div>
 
                     <div className="flex">
                       <div className="bg-gray-800 text-white text-sm rounded-lg rounded-tl-none p-3 max-w-[80%]">
                         <p>
-                          ¡Claro! Para fotografía de paisajes recomiendo cámaras con buen rango dinámico y alta
-                          resolución.
+                          {t("cta_section.chat_demo.ai1")}
                         </p>
-                        <p className="mt-2">¿Tienes alguna preferencia de marca o presupuesto?</p>
+                        
                       </div>
                     </div>
 
                     <div className="flex justify-end">
                       <div className="bg-blue-600 text-white text-sm rounded-lg rounded-tr-none p-3 max-w-[80%]">
-                        Me gustan las Sony y tengo un presupuesto de unos 1500€
+                        {t("cta_section.chat_demo.user2")}
                       </div>
                     </div>
 
                     <div className="flex">
                       <div className="bg-gray-800 text-white text-sm rounded-lg rounded-tl-none p-3 max-w-[80%]">
-                        <p>Excelente elección. Sony tiene opciones perfectas para paisajes en ese rango.</p>
-                        <p className="mt-2">Te muestro las más recomendadas:</p>
+                        {t("cta_section.chat_demo.ai2")}
                       </div>
                     </div>
 
@@ -174,9 +172,9 @@ export function CTASection() {
                           </div>
                           <div className="p-2">
                             <h4 className="text-xs font-medium truncate">
-                              Sony Alpha A{item === 1 ? "7 III" : "6600"}
+                              {item === 1 ? t("cta_section.chat_demo.products[0].name") : t("cta_section.chat_demo.products[1].name")}
                             </h4>
-                            <p className="text-blue-400 text-xs font-bold">{item === 1 ? "1.799,00€" : "1.399,00€"}</p>
+                            <p className="text-blue-400 text-xs font-bold">{item === 1 ? t("cta_section.chat_demo.products[0].price") : t("cta_section.chat_demo.products[1].price")}</p>
                           </div>
                         </motion.div>
                       ))}
@@ -185,7 +183,7 @@ export function CTASection() {
                     <div className="pt-2 border-t border-gray-800 flex gap-2">
                       <input
                         type="text"
-                        placeholder="Escribe un mensaje..."
+                        placeholder={t("cta_section.inputPlaceholder")}
                         className="flex-1 bg-gray-800 border-none rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
                       <Button size="sm" className="bg-blue-600 hover:bg-blue-700 h-8 w-8 p-0">

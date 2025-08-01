@@ -47,7 +47,7 @@ export function TypewriterText({
       {displayText}
       {showCursor && (
         <motion.span
-          className="inline-block w-0.5 h-[1em] bg-blue-500 ml-1"
+          className="inline-block w-0.5 h-[1em] bg-blue-500 ml-1 text-white"
           animate={{ opacity: [1, 0] }}
           transition={{ duration: 0.8, repeat: isComplete ? 0 : Number.POSITIVE_INFINITY, repeatType: "reverse" }}
         />

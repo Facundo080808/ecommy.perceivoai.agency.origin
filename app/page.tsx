@@ -27,7 +27,7 @@ export default function Home() {
         <div id="inicio">
           <HeroSection />
         </div>
-        <FreeTrialSection />
+          <FreeTrialSection />
         <div id="caracteristicas">
           <FeaturesSection />
         </div>

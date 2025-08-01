@@ -5,15 +5,16 @@ import { Search, TrendingUp, MessageSquare } from "lucide-react"
 import { AnimatedCard } from "@/components/ui/animated-card"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { motion } from "framer-motion"
-
+import { useI18n } from "@/lib/i18n/context"
 
 export function FeaturesSection() {
+  const { t } = useI18n()
   return (
     <section id="caracteristicas" className="py-20 bg-gray-950 relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className=" relative z-20">
           <div className="text-center mb-16">
-            <AnimatedText text="Características Principales" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
+            <AnimatedText text={t("features_section.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
             <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
@@ -21,7 +22,7 @@ export function FeaturesSection() {
               transition={{ delay: 0.3, duration: 0.8 }}
            
             >
-              Nuestros agentes AI transforman la experiencia de compra en su tienda online
+              {t("features_section.subtitle")}
             </motion.p>
           </div>
         
@@ -29,24 +30,24 @@ export function FeaturesSection() {
           <AnimatedCard delay={0.1}>
             <FeatureCard
               icon={<Search className="h-10 w-10 text-blue-500" />}
-              title="Optimización de Búsquedas"
-              description="Resultados precisos y relevantes basados en la intención del usuario, no solo en palabras clave."
+              title={t("features_section.features[0].title")}
+              description={t("features_section.features[0].description")}
             />
           </AnimatedCard>
 
           <AnimatedCard delay={0.3}>
             <FeatureCard
               icon={<TrendingUp className="h-10 w-10 text-blue-500" />}
-              title="Mejora de Conversiones"
-              description="Incremento demostrado en tasas de conversión gracias a recomendaciones personalizadas."
+              title={t("features_section.features[1].title")}
+              description={t("features_section.features[1].description")}
             />
           </AnimatedCard>
 
           <AnimatedCard delay={0.5}>
             <FeatureCard
               icon={<MessageSquare className="h-10 w-10 text-blue-500" />}
-              title="Automatización de Atención"
-              description="Asistencia disponible 24/7 para resolver dudas y guiar a los clientes en su proceso de compra."
+              title={t("features_section.features[2].title")}
+              description={t("features_section.features[2].description")}
             />
           </AnimatedCard>
         </div>

@@ -1,34 +1,46 @@
 "use client"
-
+import { useI18n } from "@/lib/i18n/context"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Clock, CheckCircle, Zap, Shield, ArrowRight, Sparkles, Code, BarChart3, Truck } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function FreeTrialSection() {
+  const { t } = useI18n()
   const [isHovered, setIsHovered] = useState(false)
+  const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([])
+  
+  useEffect(() => {
+    const generatedParticles = Array.from({ length: 20 }).map(() => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2,
+    }))
+    setParticles(generatedParticles)
+  }, [])
 
   const features = [
     {
       icon: Code,
-      title: "API Completa",
-      description: "Acceso total a nuestra API de agentes AI",
+      title: t("free_trial_section.features[0].title"),
+      description: t("free_trial_section.features[0].description"),
     },
     {
       icon: BarChart3,
-      title: "Integración eCommerce",
-      description: "Compatible con Shopify, WooCommerce, Magento",
+      title: t("free_trial_section.features[1].title"),
+      description: t("free_trial_section.features[1].description"),
     },
     {
       icon: Truck,
-      title: "Tracking Avanzado",
-      description: "Seguimiento en tiempo real de pedidos",
+      title: t("free_trial_section.features[2].title"),
+      description: t("free_trial_section.features[2].description"),
     },
     {
       icon: Shield,
-      title: "Sin Compromiso",
-      description: "Cancela cuando quieras, sin penalizaciones",
+      title: t("free_trial_section.features[3].title"),
+      description: t("free_trial_section.features[3].description"),
     },
   ]
 
@@ -41,23 +53,23 @@ export function FreeTrialSection() {
       </div>
 
       {/* Animated particles */}
-      <div className="absolute inset-0 ">
-        {Array.from({ length: 20 }).map((_, i) => (
+        <div className="absolute inset-0">
+        {particles.map((particle, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-blue-400/30 rounded-full"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              left: particle.left,
+              top: particle.top,
             }}
             animate={{
               y: [0, -100, 0],
               opacity: [0, 1, 0],
             }}
             transition={{
-              duration: 3 + Math.random() * 2,
+              duration: particle.duration,
               repeat: Number.POSITIVE_INFINITY,
-              delay: Math.random() * 2,
+              delay: particle.delay,
             }}
           />
         ))}
@@ -81,7 +93,7 @@ export function FreeTrialSection() {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-full px-4 py-2 mb-6"
             >
               <Sparkles className="h-4 w-4 text-green-400" />
-              <span className="text-green-400 font-medium">Oferta Limitada</span>
+              <span className="text-green-400 font-medium">{t("free_trial_section.badge")}</span>
               <motion.div
                 className="w-2 h-2 bg-green-400 rounded-full"
                 animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
@@ -91,16 +103,15 @@ export function FreeTrialSection() {
 
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                Prueba Gratuita de
+                {t("free_trial_section.heading.main")}
               </span>
               <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent ml-3">
-                7 Días
+                {t("free_trial_section.heading.highlight")}
               </span>
             </h2>
 
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              Experimenta el poder de los agentes AI en tu eCommerce.
-              <strong className="text-white"> Sin tarjeta de crédito, sin compromisos.</strong>
+              {t("free_trial_section.description")}
             </p>
           </motion.div>
 
@@ -147,14 +158,14 @@ export function FreeTrialSection() {
               >
                 <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                   <CheckCircle className="h-5 w-5 text-green-400" />
-                  Qué incluye tu prueba gratuita:
+                  {t("free_trial_section.whats_included_title")}
                 </h3>
                 <ul className="space-y-2">
                   {[
-                    "Hasta 100 conversaciones con AI",
-                    "Integración completa con tu plataforma: API plataformas de eCommerce y tracking",
-                    "Soporte técnico 09:00 a 18:30 (-3 GTM)", 
-                    "Configuración personalizada",
+                    t("free_trial_section.whats_included_items[0]"),
+                    t("free_trial_section.whats_included_items[1]"),
+                    t("free_trial_section.whats_included_items[2]"), 
+                    t("free_trial_section.whats_included_items[3]"),
                   ].map((item, index) => (
                     <motion.li
                       key={index}
@@ -198,15 +209,15 @@ export function FreeTrialSection() {
                     <div className="text-6xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">
                       7
                     </div>
-                    <div className="text-gray-400">días completamente gratis</div>
+                    <div className="text-gray-400">{t("free_trial_section.timer.days_free")}</div>
                   </motion.div>
 
                   {/* Benefits */}
                   <div className="space-y-4 mb-8">
                     {[
-                      { icon: Zap, text: "Configuración en menos de 7 dias hábiles" },
-                      { icon: Shield, text: "Sin tarjeta de crédito requerida" },
-                      { icon: CheckCircle, text: "Cancela en cualquier momento" },
+                      { icon: Zap, text: t("free_trial_section.benefits[0]") },
+                      { icon: Shield, text: t("free_trial_section.benefits[1]") },
+                      { icon: CheckCircle, text: t("free_trial_section.benefits[2]") },
                     ].map((benefit, index) => (
                       <motion.div
                         key={index}
@@ -237,7 +248,7 @@ export function FreeTrialSection() {
                       className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-4 text-lg relative overflow-hidden group"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        Comenzar Prueba Gratuita
+                        {t("free_trial_section.cta_button")}
                         <ArrowRight className={`h-5 w-5 transition-transform ${isHovered ? "translate-x-1" : ""}`} />
                       </span>
                       <motion.div
@@ -250,7 +261,7 @@ export function FreeTrialSection() {
                   </motion.div>
 
                   <p className="text-center text-sm text-gray-500 mt-4">
-                    Únete a más de 500+ empresas que ya confían en nosotros
+                    {t("free_trial_section.trust_text")}
                   </p>
                 </div>
               </Card>
@@ -265,9 +276,9 @@ export function FreeTrialSection() {
            
             className="mt-12 text-center"
           >
-            <p className="text-gray-400 mb-4">Integración instantánea con:</p>
+            <p className="text-gray-400 mb-4">{t("free_trial_section.integrations_title")}</p>
             <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
-              {["Shopify", "WooCommerce", "Magento", "PrestaShop", "DHL", "FedEx"].map((platform, index) => (
+              {[t("free_trial_section.integrations_list[0]"), t("free_trial_section.integrations_list[1]"), t("free_trial_section.integrations_list[2]"), t("free_trial_section.integrations_list[3]"), t("free_trial_section.integrations_list[4]"), t("free_trial_section.integrations_list[5]")].map((platform, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}

@@ -4,23 +4,25 @@ import { Check } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { AnimatedList, AnimatedListItem } from "@/components/ui/animated-list"
 import { motion } from "framer-motion"
+import { useI18n } from "@/lib/i18n/context"
 
 
 export function BenefitsSection() {
+  const {t}= useI18n()
   return (
     <section id="beneficios" className="py-20 bg-gray-950 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className="container relative z-20">
         
           <div className="text-center mb-16">
-            <AnimatedText text="Beneficios" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
+            <AnimatedText text={t("benefits_section.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
             <motion.p
               className="text-xl text-gray-400 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
-              Ventajas para su negocio y para sus clientes
+              {t("benefits_section.subtitle")}
             </motion.p>
           </div>
         
@@ -42,23 +44,23 @@ export function BenefitsSection() {
                 transition={{ duration: 0.5 }}
                
               >
-                Para el eCommerce
+                {t("benefits_section.ecommerce.title")}
               </motion.h3>
               <AnimatedList>
                 <AnimatedListItem>
-                  <BenefitItem text="Mejora en experiencia del usuario" />
+                  <BenefitItem text= {t("benefits_section.ecommerce.items[0]")} />
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Reducción del abandono del carrito" />
+                  <BenefitItem text={t("benefits_section.ecommerce.items[1]")}/>
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Incremento en tasa de conversión" />
+                  <BenefitItem text={t("benefits_section.ecommerce.items[2]")} />
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Mayor satisfacción del cliente" />
+                  <BenefitItem text={t("benefits_section.ecommerce.items[3]")}/>
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Menor carga en atención humana" />
+                  <BenefitItem text={t("benefits_section.ecommerce.items[4]")}/>
                 </AnimatedListItem>
               </AnimatedList>
             </motion.div>
@@ -79,23 +81,23 @@ export function BenefitsSection() {
                 transition={{ duration: 0.5 }}
                 viewport={{ once: true }}
               >
-                Para el Usuario
+                {t("benefits_section.user.title")}
               </motion.h3>
               <AnimatedList>
                 <AnimatedListItem>
-                  <BenefitItem text="Experiencia intuitiva y conversacional" />
+                  <BenefitItem text={t("benefits_section.user.items[0]")}/>
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Acceso rápido a información detallada" />
+                  <BenefitItem text={t("benefits_section.user.items[1]")} />
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Proceso de checkout simplificado" />
+                  <BenefitItem text={t("benefits_section.user.items[2]")} />
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Seguimiento eficiente de pedidos" />
+                  <BenefitItem text={t("benefits_section.user.items[3]")} />
                 </AnimatedListItem>
                 <AnimatedListItem>
-                  <BenefitItem text="Asistencia disponible 24/7" />
+                  <BenefitItem text={t("benefits_section.user.items[4]")}/>
                 </AnimatedListItem>
               </AnimatedList>
             </motion.div>

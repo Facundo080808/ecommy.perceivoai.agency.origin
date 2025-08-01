@@ -2,7 +2,14 @@
 
 import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
-import { es, en, pt, type Translations, type NestedTranslations } from "./translations"
+import { es } from "@/lib/i18n/translations/es"
+import { en } from "@/lib/i18n/translations/en"
+import { pt } from "@/lib/i18n/translations/pt"
+import type { LocaleLanguaje } from "@/lib/i18n/translations/translationType"
+
+// Tipo genérico para traducciones anidadas
+type TranslationValue = string | string[] | { [key: string]: TranslationValue }
+type Translations = { [key: string]: TranslationValue }
 
 // Tipos de idiomas disponibles
 export type Language = "es" | "en" | "pt"
@@ -12,23 +19,36 @@ interface I18nContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: (key: string, params?: Record<string, string>) => any
-  translations: Translations
+  translations: LocaleLanguaje
 }
 
 // Crear el contexto
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
 // Función para obtener un valor anidado usando una ruta de puntos
-function getNestedValue(obj: NestedTranslations, path: string): string | string[] | Record<string, string> {
+function getNestedValue(obj: LocaleLanguaje, path: string): TranslationValue {
   const keys = path.split(".")
+
   let current: any = obj
 
   for (const key of keys) {
-    if (current[key] === undefined) {
-      console.warn(`Translation key not found: ${path}`)
-      return path
+    const arrayMatch = key.match(/^(\w+)\[(\d+)\]$/)
+    if (arrayMatch) {
+      const arrayKey = arrayMatch[1]  // ej: "messages"
+      const index = parseInt(arrayMatch[2], 10)  // ej: 0
+
+      if (!Array.isArray(current[arrayKey])) {
+        console.warn(`Expected array at key: ${arrayKey}`)
+        return path
+      }
+      current = current[arrayKey][index]
+    } else {
+      if (current[key] === undefined) {
+        console.warn(`Translation key not found: ${path}`)
+        return path
+      }
+      current = current[key]
     }
-    current = current[key]
   }
 
   return current
@@ -36,29 +56,33 @@ function getNestedValue(obj: NestedTranslations, path: string): string | string[
 
 // Proveedor del contexto
 export function I18nProvider({ children }: { children: React.ReactNode }) {
-  // Estado para el idioma actual
-  const [language, setLanguage] = useState<Language>("es")
-
-  // Objeto de traducciones según el idioma
-  const translationMap: Record<Language, Translations> = {
-    es,
-    en,
-    pt,
+  const [language, setLanguage] = useState<Language>(() => {
+  if (typeof window !== "undefined") {
+    const savedLanguage = localStorage.getItem("language") as Language | null
+    if (savedLanguage && ["es", "en", "pt"].includes(savedLanguage)) {
+      console.log(savedLanguage, "language loaded at init")
+      return savedLanguage
+    }
   }
+  return "es"
+})
 
-  // Obtener las traducciones actuales
+
+  const translationMap: Record<Language, LocaleLanguaje> = {
+  es,
+  en,
+  pt,
+}
+
   const translations = translationMap[language]
 
-  // Función para traducir una clave
   const t = (key: string, params?: Record<string, string>): any => {
     try {
-      // Obtener el valor traducido
       let value = getNestedValue(translations, key)
 
-      // Si es un string, reemplazar parámetros si existen
       if (typeof value === "string" && params) {
         Object.entries(params).forEach(([paramKey, paramValue]) => {
-          value = (value as string).replace(`{${paramKey}}`, paramValue)
+          value = (value as string).replace(new RegExp(`{${paramKey}}`, "g"), paramValue)
         })
       }
 
@@ -69,25 +93,26 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  // Persistir el idioma en localStorage
   useEffect(() => {
-    // Intentar obtener el idioma guardado
     const savedLanguage = localStorage.getItem("language") as Language | null
 
     if (savedLanguage && ["es", "en", "pt"].includes(savedLanguage)) {
       setLanguage(savedLanguage)
+      console.log(savedLanguage, "language loaded from localStorage")
     }
   }, [])
 
-  // Guardar el idioma cuando cambie
   useEffect(() => {
     localStorage.setItem("language", language)
   }, [language])
 
-  return <I18nContext.Provider value={{ language, setLanguage, t, translations }}>{children}</I18nContext.Provider>
+  return (
+    <I18nContext.Provider value={{ language, setLanguage, t, translations }}>
+      {children}
+    </I18nContext.Provider>
+  )
 }
 
-// Hook personalizado para usar el contexto
 export function useI18n() {
   const context = useContext(I18nContext)
 

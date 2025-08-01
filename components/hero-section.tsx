@@ -6,12 +6,22 @@ import { TypewriterText } from "@/components/ui/typewriter-text"
 import { motion } from "framer-motion"
 import { useI18n } from "@/lib/i18n/context"
 import { ArrowRight, Sparkles, Zap, TrendingUp, Brain } from "lucide-react"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export function HeroSection() {
   const { t } = useI18n()
   const [titleComplete, setTitleComplete] = useState(false)
+  const [lines, setLines] = useState<{ x1: string; y1: string; x2: string; y2: string }[]>([])
 
+  useEffect(() => {
+    const generatedLines = Array.from({ length: 8 }).map(() => ({
+      x1: `${Math.random() * 100}%`,
+      y1: `${Math.random() * 100}%`,
+      x2: `${Math.random() * 100}%`,
+      y2: `${Math.random() * 100}%`,
+    }))
+    setLines(generatedLines)
+  }, [])
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
       {/* Animated background elements */}
@@ -70,13 +80,13 @@ export function HeroSection() {
             <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
           </linearGradient>
         </defs>
-        {Array.from({ length: 8 }).map((_, i) => (
+        {lines.map((line, i) => (
           <motion.line
             key={i}
-            x1={`${Math.random() * 100}%`}
-            y1={`${Math.random() * 100}%`}
-            x2={`${Math.random() * 100}%`}
-            y2={`${Math.random() * 100}%`}
+            x1={line.x1}
+            y1={line.y1}
+            x2={line.x2}
+            y2={line.y2}
             stroke="url(#line-gradient)"
             strokeWidth="1"
             initial={{ pathLength: 0, opacity: 0 }}
@@ -115,12 +125,12 @@ export function HeroSection() {
 
             {/* Main title with typewriter */}
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight ">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent"
+                  className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text "
                 >
                   <TypewriterText text="AI Agents" speed={80} delay={500} onComplete={() => setTitleComplete(true)} />
                 </motion.div>
@@ -142,7 +152,7 @@ export function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.5 }}
                 className="text-xl md:text-2xl text-gray-300 max-w-2xl"
               >
-                <TypewriterText text={t("hero.subtitle")} speed={25} delay={1000} showCursor={false} />
+                {t("hero_section.subtitle")}
               </motion.div>
             </div>
 
@@ -187,7 +197,7 @@ export function HeroSection() {
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 relative overflow-hidden group px-8 py-4 text-lg"
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    {t("hero.demoButton")}
+                    {t("hero_section.demoButton")}
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                   <motion.div
@@ -211,7 +221,7 @@ export function HeroSection() {
                   // onClick={scrollToContact}
                   className="border-2 border-blue-500/50 text-white hover:bg-blue-500/10 backdrop-blur-sm px-8 py-4 text-lg bg-transparent"
                 >
-                  {t("hero.featuresButton")}
+                  {t("hero_section.featuresButton")}
                 </Button>
               </motion.div>
             </motion.div>
@@ -283,31 +293,44 @@ export function HeroSection() {
               <ChatInterface
                 messages={[
                   {
-                    role: "user",
-                    content: "Estoy buscando una cámara digital de buena calidad",
+                    role: t("hero_section.demo.messages[0].role"),
+                    content: t("hero_section.demo.messages[0].content"),
                   },
                   {
-                    role: "assistant",
+                    role: t("hero_section.demo.messages[1].role"),
                     content:
-                      "¡Perfecto! Nuestro AI puede ayudarte a encontrar la cámara ideal. ¿Prefieres una profesional o más compacta para uso diario?",
+                      t("hero_section.demo.messages[1].content"),
                   },
                   {
-                    role: "user",
-                    content: "Busco algo profesional pero fácil de usar",
+                    role: t("hero_section.demo.messages[2].role"),
+                    content: t("hero_section.demo.messages[2].content"),
                   },
+                  // {
+                  //   role: "user",
+                  //   content: "Estoy buscando una cámara digital de buena calidad",
+                  // },
+                  // {
+                  //   role: "assistant",
+                  //   content:
+                  //     "¡Perfecto! Nuestro AI puede ayudarte a encontrar la cámara ideal. ¿Prefieres una profesional o más compacta para uso diario?",
+                  // },
+                  // {
+                  //   role: "user",
+                  //   content: "Busco algo profesional pero fácil de usar",
+                  // },
                 ]}
                 productRecommendations={[
                   {
-                    name: "Sony Alpha A7 III",
-                    price: "1.799,00€",
-                    image: "/placeholder.svg?height=100&width=100",
-                    specs: ["Sensor Full Frame", "24.2MP", "4K Video", "5-axis stabilization"],
+                    name: t("hero_section.demo.products[0].name"),
+                    price: t("hero_section.demo.products[0].price"),
+                    image: t("hero_section.demo.products[0].image"),
+                    specs: t("hero_section.demo.products[0].specs"),
                   },
                   {
-                    name: "Canon EOS R6",
-                    price: "2.499,00€",
-                    image: "/placeholder.svg?height=100&width=100",
-                    specs: ["Sensor Full Frame", "20.1MP", "4K Video", "Dual Pixel AF"],
+                    name: t("hero_section.demo.products[1].name"),
+                    price: t("hero_section.demo.products[1].price"),
+                    image: t("hero_section.demo.products[1].image"),
+                    specs: t("hero_section.demo.products[1].specs"),
                   },
                 ]}
                 simplified={true}

@@ -5,21 +5,23 @@ import { Check } from "lucide-react"
 import { AnimatedText } from "@/components/ui/animated-text"
 import { AnimatedCard } from "@/components/ui/animated-card"
 import { motion } from "framer-motion"
+import { useI18n } from "@/lib/i18n/context"
 
 export function PricingSection() {
+  const { t } = useI18n()
   return (
     <section id="precios" className="py-20 bg-gray-950 relative ">
       <div className="absolute top-0 left-0 w-full h-20 bg-gradient-to-b from-black to-transparent z-10"></div>
       <div className=" relative z-20">
         <div className="text-center mb-16">
-          <AnimatedText text="Planes y Precios" className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
+          <AnimatedText text={ t("pricing_section.title")} className="text-3xl md:text-4xl font-bold mb-4" as="h2" />
           <motion.p
             className="text-xl text-gray-400 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8 }}
           >
-            Soluciones flexibles que se adaptan a las necesidades de su negocio
+            {t("pricing_section.subtitle")}
           </motion.p>
         </div>
 
@@ -29,23 +31,12 @@ export function PricingSection() {
           {/* Tarjeta Set Up */}
           <AnimatedCard delay={0.1}>
             <PricingCard
-              title="Set Up o implementación personalizada"
-              price="$2500 USD"
-              priceNote="neto"
-              description="Solución completa para tu eCommerce"
-              features={[
-                "Asistente AI conversacional",
-                "Búsqueda de productos",
-                "Recomendaciones básicas",
-                "Hasta 30k interacciones/mes",
-                "Recomendaciones personalizadas",
-                "Comparación de productos",
-                "Personalización completa",
-                "Integración API completa",
-                "Historial de interacciones con el agente AI",
-                "Soporte por email",
-              ]}
-              buttonText="Solicitar Implementación"
+              title={t("pricing_section.plans[0].title")}
+              price={t("pricing_section.plans[0].price")}
+              priceNote={t("pricing_section.plans[0].priceNote")}
+              description={t("pricing_section.plans[0].description")}
+              features={t("pricing_section.plans[0].features")}
+              buttonText={t("pricing_section.plans[0].buttonText")}
               buttonVariant="default"
               highlighted
               showRecommended
@@ -55,45 +46,24 @@ export function PricingSection() {
           {/* Tarjeta Fee mensual */}
           <AnimatedCard delay={0.3}>
             <PricingCard
-              title="Fee Mensual"
-              price="$1490 USD"
-              priceNote="mes neto"
-              description="Costo recurrente para mantener tu solución activa"
-              features={[
-                "Duración: 1 mes (renovable automáticamente)",
-                "8 horas/mes de soporte incluidas",
-                
-                "SLA de respuesta: 6 horas desde la recepción",
-                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -3)",
-                "Token LLM",
-                "base de datos",
-                "Embedding",
-                "RAG",
-                "tarifa por hora extra: $30 USD/Hra"
-              ]}
+              title={t("pricing_section.plans[1].title")}
+              price={t("pricing_section.plans[1].price")}
+              priceNote={t("pricing_section.plans[1].priceNote")}
+              description={t("pricing_section.plans[1].description")}
+              features={t("pricing_section.plans[1].features")}
+              buttonText={t("pricing_section.plans[1].buttonText")}
               // buttonText="Solicitar Información"
               // buttonVariant="outline"
             />
           </AnimatedCard>
           <AnimatedCard delay={0.1}>
             <PricingCard
-              title="Set Up o implementación personalizada"
-              price="$5000 USD"
-              priceNote="neto"
-              description="Solución completa para tu eCommerce"
-              features={[
-                "Asistente AI conversacional",
-                "Búsqueda de productos",
-                "Recomendaciones básicas",
-                "Hasta 30k interacciones/mes",
-                "Recomendaciones personalizadas",
-                "Comparación de productos",
-                "Personalización completa",
-                "Integración API completa",
-                "Historial de interacciones con el agente AI",
-                "Soporte por email",
-              ]}
-              buttonText="Solicitar Implementación"
+             title={t("pricing_section.plans[2].title")}
+              price={t("pricing_section.plans[2].price")}
+              priceNote={t("pricing_section.plans[2].priceNote")}
+              description={t("pricing_section.plans[2].description")}
+              features={t("pricing_section.plans[2].features")}
+              buttonText={t("pricing_section.plans[2].buttonText")}
               buttonVariant="default"
               highlighted
               showRecommended
@@ -101,22 +71,12 @@ export function PricingSection() {
           </AnimatedCard>
           <AnimatedCard delay={0.3}>
             <PricingCard
-              title="Fee Mensual"
-              price="$990 USD"
-              priceNote="mes neto"
-              description="Costo recurrente para mantener tu solución activa"
-              features={[
-                "Duración: 1 mes (renovable automáticamente)",
-                "8 horas/mes de soporte incluidas",
-            
-                "SLA de respuesta: 6 horas desde la recepción",
-                "Horario de cobertura: Lunes-Viernes, 09:00-18:00 (GMT -3)",
-                "Token LLM",
-                "base de datos",
-                "Embedding",
-                "RAG",
-                "tarifa por hora extra: $30 USD/Hra"
-              ]}
+              title={t("pricing_section.plans[3].title")}
+              price={t("pricing_section.plans[3].price")}
+              priceNote={t("pricing_section.plans[3].priceNote")}
+              description={t("pricing_section.plans[3].description")}
+              features={t("pricing_section.plans[3].features")}
+              buttonText={t("pricing_section.plans[3].buttonText")}
               // buttonText="Solicitar Información"
               // buttonVariant="outline"
             />
