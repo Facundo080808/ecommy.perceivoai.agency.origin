@@ -534,6 +534,73 @@ cta_section: {
     ],
     productImagePlaceholder: "Image"
   }
+},
+calculator:{
+   header: {
+    title: "AI Impact Calculator",
+    description:
+      "Discover how much value an AI agent can generate for your eCommerce. Calculations based on real industry data.",
+    tags: [
+      { label: "+12% conversion improvement", highlight: "+12%" },
+      { label: "66% tickets automated", highlight: "66%" },
+      { label: "+5% increase in AOV", highlight: "+5%" },
+    ],
+  },
+  chartData: {
+  ingresosExtra: "Extra Revenue",
+  ahorroSoporte: "Support Savings",
+  mejoraConversion: "Conversion Improvement",
+  aumentoAOV: "AOV Increase",
+}
+,
+  form: {
+    title: "Your eCommerce Data",
+    traffic: {
+      label: "Average Monthly Traffic",
+      unit: "visitors/month",
+      minLabel: "1K",
+      maxLabel: "500K",
+    },
+    conversionRate: {
+      label: "Current Conversion Rate",
+      unit: "%",
+    },
+    aov: {
+      label: "Average Order Value (AOV)",
+      unit: "$",
+    },
+    numAgents: {
+      label: "Number of Support Agents",
+    },
+    costPerAgent: {
+      label: "Monthly Cost per Agent",
+      unit: "$",
+    },
+  },
+  results: {
+    annualImpact: {
+      title: "Estimated Annual Impact",
+      subtitle: "in additional value generated per year",
+    },
+    monthlyBreakdown: {
+      title: "Monthly Breakdown",
+      extraRevenue: "Extra Revenue",
+      supportSavings: "Support Savings",
+      totalMonthly: "Total Monthly",
+    },
+    detailedBreakdown: {
+      title: "Detailed Breakdown",
+      currentRevenue: "Current revenue (monthly):",
+      aiRevenue: "Revenue with AI (monthly):",
+      conversionGain: "Conversion improvement (+12%):",
+      aovGain: "AOV increase (+5%):",
+      supportAutomation: "Support savings (66% automated):",
+    },
+  },
+  cta: {
+    button: "I want to automate my eCommerce with AI",
+    disclaimer: "* Calculations based on industry averages and real success stories",
+  },
 }
 ,
 

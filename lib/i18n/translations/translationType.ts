@@ -284,6 +284,71 @@ export type LocaleLanguaje = {
       }
   }
   };
+  calculator:{
+    header: {
+    title: string
+    description: string
+    tags: {
+      label: string
+      highlight: string
+    }[]
+  }
+   chartData:{
+    ingresosExtra: string,
+    ahorroSoporte: string,
+    mejoraConversion: string,
+    aumentoAOV: string,
+  }
+  form: {
+    title: string
+    traffic: {
+      label: string
+      unit: string
+      minLabel: string
+      maxLabel: string
+    }
+    conversionRate: {
+      label: string
+      unit: string
+    }
+   
+    aov: {
+      label: string
+      unit: string
+    }
+    numAgents: {
+      label: string
+    }
+    costPerAgent: {
+      label: string
+      unit: string
+    }
+  }
+  results: {
+    annualImpact: {
+      title: string
+      subtitle: string
+    }
+    monthlyBreakdown: {
+      title: string
+      extraRevenue: string
+      supportSavings: string
+      totalMonthly: string
+    }
+    detailedBreakdown: {
+      title: string
+      currentRevenue: string
+      aiRevenue: string
+      conversionGain: string
+      aovGain: string
+      supportAutomation: string
+    }
+  }
+  cta: {
+    button: string
+    disclaimer: string
+  }
+  }
   cta_section: {
     title: string;
     subtitle: string;

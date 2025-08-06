@@ -9,6 +9,7 @@ import { Slider } from "@/components/ui/slider"
 import { motion, AnimatePresence } from "framer-motion"
 import { Calculator, TrendingUp, DollarSign, Users, Zap, ArrowRight, Target, BarChart3 } from "lucide-react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
+import { useI18n } from "@/lib/i18n/context"
 
 interface CalculatorInputs {
   traffic: number
@@ -29,6 +30,7 @@ interface CalculationResults {
 }
 
 export function ROICalculator() {
+  const { t } = useI18n()
   const [inputs, setInputs] = useState<CalculatorInputs>({
     traffic: 50000,
     conversionRate: 1.5,
@@ -40,10 +42,10 @@ export function ROICalculator() {
   const [results, setResults] = useState<CalculationResults | null>(null)
   const [showResults, setShowResults] = useState(false)
 
-  // Constantes del AI Agent
-  const AI_CONVERSION_UPLIFT = 0.15 // 15% mejora en conversión
-  const AI_TICKET_RESOLUTION_RATE = 0.6 // 60% de tickets resueltos automáticamente
-  const AI_AOV_INCREASE = 0.05 // 5% aumento en AOV
+  // Constantes actualizadas del AI Agent basadas en datos reales de la industria
+  const AI_CONVERSION_UPLIFT = 0.12 // 12% mejora en conversión (actualizado)
+  const AI_TICKET_RESOLUTION_RATE = 0.66 // 66% de tickets resueltos automáticamente (actualizado)
+  const AI_AOV_INCREASE = 0.05 // 5% aumento en AOV (sin cambios)
 
   // Formatear números como moneda
   const formatCurrency = (amount: number) => {
@@ -109,16 +111,30 @@ export function ROICalculator() {
     }))
   }
 
-  
+  const scrollToContact = () => {
+    const contactElement = document.querySelector("#contacto")
+    if (contactElement) {
+      const headerOffset = 80
+      const elementPosition = contactElement.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  }
+
+  // Datos para gráficos
   const chartData = results
     ? [
         {
-          name: "Ingresos Extra",
+          name: t("calculator.chartData.ingresosExtra"),
           value: results.gainConversion + results.gainAOV,
           color: "#3b82f6",
         },
         {
-          name: "Ahorro en Soporte",
+          name: t("calculator.chartData.ahorroSoporte"),
           value: results.supportSavings,
           color: "#10b981",
         },
@@ -128,17 +144,17 @@ export function ROICalculator() {
   const pieData = results
     ? [
         {
-          name: "Mejora Conversión",
+          name: t("calculator.chartData.mejoraConversion"),
           value: results.gainConversion,
           color: "#3b82f6",
         },
         {
-          name: "Aumento AOV",
+          name: t("calculator.chartData.aumentoAOV"),
           value: results.gainAOV,
           color: "#8b5cf6",
         },
         {
-          name: "Ahorro Soporte",
+          name: t("calculator.chartData.ahorroSoporte"),
           value: results.supportSavings,
           color: "#10b981",
         },
@@ -159,7 +175,7 @@ export function ROICalculator() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-        
+          viewport={{ once: true }}
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center gap-3 mb-6">
@@ -167,13 +183,22 @@ export function ROICalculator() {
               <Calculator className="h-8 w-8 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Calculadora de Impacto AI
+              {t("calculator.header.title")}
             </h2>
           </div>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Descubre cuánto valor puede generar un agente AI en tu eCommerce. Cálculos basados en datos reales de la
-            industria.
+          <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-4">{t("calculator.header.description")}
           </p>
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+            <div className="bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1">
+              <span className="text-blue-400 font-medium">+12%</span> {t("calculator.tags[0].label")}
+            </div>
+            <div className="bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1">
+              <span className="text-green-400 font-medium">66%</span> {t("calculator.tags[1].label")}
+            </div>
+            <div className="bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1">
+              <span className="text-purple-400 font-medium">+5%</span> {t("calculator.tags[2].label")}
+            </div>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -187,15 +212,15 @@ export function ROICalculator() {
             <Card className="bg-gray-900/80 backdrop-blur-xl border-gray-800 p-8">
               <div className="flex items-center gap-3 mb-8">
                 <Target className="h-6 w-6 text-blue-500" />
-                <h3 className="text-2xl font-bold text-white">Datos de tu eCommerce</h3>
+                <h3 className="text-2xl font-bold text-white">{t("calculator.form.title")}</h3>
               </div>
 
               <div className="space-y-8">
                 {/* Tráfico Mensual */}
                 <div className="space-y-4">
                   <Label className="text-gray-300 text-lg font-medium">
-                    Tráfico Mensual Promedio
-                    <span className="text-blue-400 ml-2">{formatNumber(inputs.traffic)} visitantes/mes</span>
+                   {t("calculator.form.traffic.label")}
+                    <span className="text-blue-400 ml-2">{formatNumber(inputs.traffic)} {t("calculator.form.traffic.unit")}</span>
                   </Label>
                   <Slider
                     value={[inputs.traffic]}
@@ -214,7 +239,7 @@ export function ROICalculator() {
                 {/* Tasa de Conversión */}
                 <div className="space-y-3">
                   <Label htmlFor="conversion" className="text-gray-300 text-lg font-medium">
-                    Tasa de Conversión Actual
+                    {t("calculator.form.conversionRate.label")}
                   </Label>
                   <div className="relative">
                     <Input
@@ -234,7 +259,7 @@ export function ROICalculator() {
                 {/* AOV */}
                 <div className="space-y-3">
                   <Label htmlFor="aov" className="text-gray-300 text-lg font-medium">
-                    Ticket Promedio de Venta (AOV)
+                    {t("calculator.form.aov.label")}
                   </Label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">$</span>
@@ -252,7 +277,7 @@ export function ROICalculator() {
                 {/* Número de Agentes */}
                 <div className="space-y-3">
                   <Label htmlFor="agents" className="text-gray-300 text-lg font-medium">
-                    Número de Agentes de Soporte
+                    {t("calculator.form.numAgents.label")}
                   </Label>
                   <Input
                     id="agents"
@@ -267,7 +292,7 @@ export function ROICalculator() {
                 {/* Costo por Agente */}
                 <div className="space-y-3">
                   <Label htmlFor="cost" className="text-gray-300 text-lg font-medium">
-                    Costo Mensual por Agente
+                    {t("calculator.form.costPerAgent.label")}
                   </Label>
                   <div className="relative">
                     <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">$</span>
@@ -290,7 +315,7 @@ export function ROICalculator() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            
+            viewport={{ once: true }}
             className="space-y-6"
           >
             <AnimatePresence>
@@ -311,7 +336,7 @@ export function ROICalculator() {
                     >
                       <TrendingUp className="h-16 w-16 text-green-400 mx-auto mb-4" />
                     </motion.div>
-                    <h3 className="text-2xl font-bold text-white mb-2">Impacto Anual Estimado</h3>
+                    <h3 className="text-2xl font-bold text-white mb-2">{t("calculator.results.annualImpact.title")}</h3>
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -320,14 +345,14 @@ export function ROICalculator() {
                     >
                       {formatCurrency(results.totalAnnualROI)}
                     </motion.div>
-                    <p className="text-gray-300 text-lg">en valor adicional generado por año</p>
+                    <p className="text-gray-300 text-lg">{t("calculator.results.annualImpact.subtitle")}</p>
                   </Card>
 
                   {/* Monthly Breakdown */}
                   <Card className="bg-gray-900/80 backdrop-blur-xl border-gray-800 p-6">
                     <div className="flex items-center gap-3 mb-6">
                       <BarChart3 className="h-6 w-6 text-blue-500" />
-                      <h4 className="text-xl font-bold text-white">Desglose Mensual</h4>
+                      <h4 className="text-xl font-bold text-white">{t("calculator.results.monthlyBreakdown.title")}</h4>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
@@ -341,7 +366,7 @@ export function ROICalculator() {
                         <div className="text-2xl font-bold text-white">
                           {formatCurrency(results.gainConversion + results.gainAOV)}
                         </div>
-                        <div className="text-sm text-gray-400">Ingresos Extra</div>
+                        <div className="text-sm text-gray-400">{t("calculator.results.monthlyBreakdown.title")}</div>
                       </motion.div>
 
                       <motion.div
@@ -352,7 +377,7 @@ export function ROICalculator() {
                       >
                         <Users className="h-8 w-8 text-green-400 mx-auto mb-2" />
                         <div className="text-2xl font-bold text-white">{formatCurrency(results.supportSavings)}</div>
-                        <div className="text-sm text-gray-400">Ahorro en Soporte</div>
+                        <div className="text-sm text-gray-400">{t("calculator.results.monthlyBreakdown.supportSavings")}</div>
                       </motion.div>
 
                       <motion.div
@@ -363,7 +388,7 @@ export function ROICalculator() {
                       >
                         <Zap className="h-8 w-8 text-purple-400 mx-auto mb-2" />
                         <div className="text-2xl font-bold text-white">{formatCurrency(results.totalMonthlyGain)}</div>
-                        <div className="text-sm text-gray-400">Total Mensual</div>
+                        <div className="text-sm text-gray-400">{t("calculator.results.monthlyBreakdown.totalMonthly")}</div>
                       </motion.div>
                     </div>
 
@@ -421,40 +446,28 @@ export function ROICalculator() {
 
                   {/* Detailed Breakdown */}
                   <Card className="bg-gray-900/80 backdrop-blur-xl border-gray-800 p-6">
-                    <h4 className="text-xl font-bold text-white mb-4">Desglose Detallado</h4>
+                    <h4 className="text-xl font-bold text-white mb-4">{t("calculator.results.detailedBreakdown.title")}</h4>
                     <div className="space-y-3 text-sm">
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Ingresos actuales (mensual):</span>
+                        <span className="text-gray-400">{t("calculator.results.detailedBreakdown.currentRevenue")}</span>
                         <span className="text-white font-medium">{formatCurrency(results.conversionBase)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Ingresos con AI (mensual):</span>
+                        <span className="text-gray-400">{t("calculator.results.detailedBreakdown.aiRevenue")}</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.conversionAI)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Mejora por conversión (+12%):</span>
+                        <span className="text-gray-400">{t("calculator.results.detailedBreakdown.conversionGain")}</span>
                         <span className="text-blue-400 font-medium">{formatCurrency(results.gainConversion)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Mejora por AOV (+5%):</span>
+                        <span className="text-gray-400">{t("calculator.results.detailedBreakdown.aovGain")}</span>
                         <span className="text-purple-400 font-medium">{formatCurrency(results.gainAOV)}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span className="text-gray-400">Ahorro soporte (60% automatizado):</span>
+                        <span className="text-gray-400">{t("calculator.results.detailedBreakdown.supportAutomation")}</span>
                         <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
                       </div>
-                       <div className="flex justify-between">
-                        <span className="text-gray-400">AI_Conversion_Uplift(12%):</span>
-                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
-                      </div>
-                       {/* <div className="flex justify-between">
-                        <span className="text-gray-400">AI_Ticket_Resolution_Rate(66%):</span>
-                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
-                      </div>
-                       <div className="flex justify-between">
-                        <span className="text-gray-400">AI_AOV_Increase (5% )</span>
-                        <span className="text-green-400 font-medium">{formatCurrency(results.supportSavings)}</span>
-                      </div> */}
                     </div>
                   </Card>
 
@@ -466,12 +479,12 @@ export function ROICalculator() {
                     className="text-center"
                   >
                     <Button
-                      // onClick={scrollToContact}
+                      onClick={scrollToContact}
                       size="lg"
                       className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
                     >
                       <span className="relative z-10 flex items-center gap-2">
-                        Quiero automatizar mi eCommerce con AI
+                        {t("calculator.results.cta.button")}
                         <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <motion.div
@@ -482,7 +495,7 @@ export function ROICalculator() {
                       />
                     </Button>
                     <p className="text-gray-400 text-sm mt-4">
-                      * Cálculos basados en promedios de la industria y casos de éxito reales
+                     {t("calculator.results.cta.disclaimer")}
                     </p>
                   </motion.div>
                 </motion.div>

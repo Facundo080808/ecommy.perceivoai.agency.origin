@@ -531,6 +531,73 @@ contact: {
     ],
     productImagePlaceholder: "Imagem"
   }
+},
+calculator:{
+   header: {
+    title: "Calculadora de Impacto da IA",
+    description:
+      "Descubra quanto valor um agente de IA pode gerar para o seu eCommerce. Cálculos baseados em dados reais do setor.",
+    tags: [
+      { label: "+12% melhoria na conversão", highlight: "+12%" },
+      { label: "66% dos tickets automatizados", highlight: "66%" },
+      { label: "+5% aumento no AOV", highlight: "+5%" },
+    ],
+  },
+  chartData: {
+  ingresosExtra: "Receita Extra",
+  ahorroSoporte: "Economia em Suporte",
+  mejoraConversion: "Melhoria na Conversão",
+  aumentoAOV: "Aumento no AOV",
+}
+,
+  form: {
+    title: "Dados do seu eCommerce",
+    traffic: {
+      label: "Tráfego Médio Mensal",
+      unit: "visitantes/mês",
+      minLabel: "1K",
+      maxLabel: "500K",
+    },
+    conversionRate: {
+      label: "Taxa de Conversão Atual",
+      unit: "%",
+    },
+    aov: {
+      label: "Ticket Médio de Venda (AOV)",
+      unit: "R$",
+    },
+    numAgents: {
+      label: "Número de Agentes de Suporte",
+    },
+    costPerAgent: {
+      label: "Custo Mensal por Agente",
+      unit: "R$",
+    },
+  },
+  results: {
+    annualImpact: {
+      title: "Impacto Anual Estimado",
+      subtitle: "em valor adicional gerado por ano",
+    },
+    monthlyBreakdown: {
+      title: "Resumo Mensal",
+      extraRevenue: "Receita Extra",
+      supportSavings: "Economia em Suporte",
+      totalMonthly: "Total Mensal",
+    },
+    detailedBreakdown: {
+      title: "Resumo Detalhado",
+      currentRevenue: "Receita atual (mensal):",
+      aiRevenue: "Receita com IA (mensal):",
+      conversionGain: "Melhoria na conversão (+12%):",
+      aovGain: "Aumento no AOV (+5%):",
+      supportAutomation: "Economia em suporte (66% automatizado):",
+    },
+  },
+  cta: {
+    button: "Quero automatizar meu eCommerce com IA",
+    disclaimer: "* Cálculos baseados em médias do setor e casos reais de sucesso",
+  },
 }
 ,
 footer: {

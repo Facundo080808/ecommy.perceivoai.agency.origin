@@ -500,6 +500,73 @@ secondary_hero_section: {
     },
   },
 },
+calculator:{
+  header: {
+    title: "Calculadora de Impacto AI",
+    description:
+      "Descubre cuánto valor puede generar un agente AI en tu eCommerce. Cálculos basados en datos reales de la industria.",
+    tags: [
+      { label: "mejora en conversión", highlight: "+12%" },
+      { label: "tickets automatizados", highlight: "66%" },
+      { label: "aumento en AOV", highlight: "+5%" },
+    ],
+  },
+  chartData:{
+    ingresosExtra: "Ingresos Extra",
+    ahorroSoporte: "Ahorro en Soporte",
+    mejoraConversion: "Mejora Conversión",
+    aumentoAOV: "Aumento AOV",
+  }
+  ,
+  form: {
+    title: "Datos de tu eCommerce",
+    traffic: {
+      label: "Tráfico Mensual Promedio",
+      unit: "visitantes/mes",
+      minLabel: "1K",
+      maxLabel: "500K",
+    },
+    conversionRate: {
+      label: "Tasa de Conversión Actual",
+      unit: "%",
+    },
+    aov: {
+      label: "Ticket Promedio de Venta (AOV)",
+      unit: "$",
+    },
+    numAgents: {
+      label: "Número de Agentes de Soporte",
+    },
+    costPerAgent: {
+      label: "Costo Mensual por Agente",
+      unit: "$",
+    },
+  },
+  results: {
+    annualImpact: {
+      title: "Impacto Anual Estimado",
+      subtitle: "en valor adicional generado por año",
+    },
+    monthlyBreakdown: {
+      title: "Desglose Mensual",
+      extraRevenue: "Ingresos Extra",
+      supportSavings: "Ahorro en Soporte",
+      totalMonthly: "Total Mensual",
+    },
+    detailedBreakdown: {
+      title: "Desglose Detallado",
+      currentRevenue: "Ingresos actuales (mensual):",
+      aiRevenue: "Ingresos con AI (mensual):",
+      conversionGain: "Mejora por conversión (+12%):",
+      aovGain: "Mejora por AOV (+5%):",
+      supportAutomation: "Ahorro soporte (66% automatizado):",
+    },
+  },
+  cta: {
+    button: "Quiero automatizar mi eCommerce con AI",
+    disclaimer: "* Cálculos basados en promedios de la industria y casos de éxito reales",
+  },
+},
 cta_section: {
   title: "Experiencia de usuario conversacional",
   subtitle:
