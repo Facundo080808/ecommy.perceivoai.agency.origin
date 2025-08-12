@@ -34,7 +34,7 @@ export function Footer() {
               >
                 {t("footer.description")}
               </motion.p>
-              <motion.div
+              {/* <motion.div
                 className="flex gap-4 mt-4"
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export function Footer() {
                     </Link>
                   </motion.div>
                 ))}
-              </motion.div>
+              </motion.div> */}
             </div>
           
             <FooterColumn

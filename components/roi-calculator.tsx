@@ -484,7 +484,7 @@ export function ROICalculator() {
                       className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
                     >
                       <span className="relative z-10 flex items-center gap-2">
-                        {t("calculator.results.cta.button")}
+                        {t("calculator.cta.button")}
                         <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </span>
                       <motion.div
@@ -495,7 +495,7 @@ export function ROICalculator() {
                       />
                     </Button>
                     <p className="text-gray-400 text-sm mt-4">
-                     {t("calculator.results.cta.disclaimer")}
+                     {t("calculator.cta.disclaimer")}
                     </p>
                   </motion.div>
                 </motion.div>

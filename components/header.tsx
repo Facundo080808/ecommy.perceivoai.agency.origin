@@ -35,7 +35,7 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-6">
           {[
-            { name: t("header.inicio"), href: "#inicio" },
+           
             { name: t("header.caracteristicas"), href: "#caracteristicas" },
             { name: t("header.comoFunciona"), href: "#como-funciona" },
             { name: t("header.tecnologia"), href: "#tecnologia" },
@@ -114,7 +114,7 @@ export function Header() {
         <div className="container py-4 bg-black/95 border-t border-gray-800 shadow-lg">
           <nav className="flex flex-col gap-4">
             {[
-              { name: t("header.inicio"), href: "#inicio" },
+              
               { name: t("header.caracteristicas"), href: "#caracteristicas" },
               { name: t("header.comoFunciona"), href: "#como-funciona" },
               { name: t("header.tecnologia"), href: "#tecnologia" },
