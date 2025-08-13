@@ -1,3 +1,10 @@
+export type IconKey =
+  | "Users"
+  | "Eye"
+  | "Brain"
+  | "ShoppingCart"
+  | "CheckCircle"
+
 export type LocaleLanguaje = {
   header: {
   inicio: string,
@@ -284,6 +291,66 @@ export type LocaleLanguaje = {
       }
   }
   };
+  AiDashboardContent : {
+  sectionTitle: string
+  sectionDescription: string
+  sectionRealtime: string
+  dashboardTitle: string
+  dashboardSubtitle: string
+  timeframeOptions: {
+    "1M": string
+    "3M": string
+    "6M": string
+    "1Y": string
+  }
+  integrateButton: string
+  kpis: {
+    title: string
+    value: string
+    change: string
+  }[]
+  charts: {
+    sales: {
+      title: string
+      subtitle: string
+      withAI: string
+      withoutAI: string
+    }
+    conversionSources: {
+      title: string
+      subtitle: string
+      label: string
+    }
+    funnel: {
+      title: string
+      subtitle: string
+      percentageSuffix: string
+    }
+    products: {
+      title: string
+      subtitle: string
+      before: string
+      after: string
+    }
+  }
+  
+   data: {
+    salesData: { month: string; withAI: number; withoutAI: number }[]
+    conversionSources: { name: string; value: number; color: string }[]
+    funnelData: {
+      name: string
+      value: number
+      percentage?: number
+      iconKey: IconKey
+      color: string
+    }[]
+  }
+  cta:{
+    title:string,
+    p:string,
+    btn:string
+  }
+}
   calculator:{
     header: {
     title: string

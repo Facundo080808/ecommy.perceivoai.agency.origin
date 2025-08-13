@@ -16,6 +16,8 @@ import { CTASection } from "@/components/cta-section"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { WhatsAppWidget } from "@/components/whatsapp-widget"
+import { AIDashboardDemo } from "@/components/ai-dashboard-demo"
+
 
 export default function Home() {
 
@@ -43,10 +45,9 @@ export default function Home() {
         <div id="beneficios">
           <BenefitsSection />
         </div>
-       
           <IntegrationSection />
+          <AIDashboardDemo />
           <ROICalculator />
-       
         <div id="precios">
           <PricingSection />
         </div>

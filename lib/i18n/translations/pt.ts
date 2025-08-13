@@ -532,6 +532,83 @@ contact: {
     productImagePlaceholder: "Imagem"
   }
 },
+
+ AiDashboardContent : {
+  sectionTitle: "Painel de IA para eCommerce",
+  sectionDescription:
+    "Visualize o impacto real da inteligência artificial no seu negócio com métricas avançadas e análise preditiva.",
+  sectionRealtime: "Dados atualizados em tempo real",
+  dashboardTitle: "Painel de Análises",
+  dashboardSubtitle: "Powered by AI",
+  timeframeOptions: {
+    "1M": "1 Mês",
+    "3M": "3 Meses",
+    "6M": "6 Meses",
+    "1Y": "1 Ano",
+  },
+  integrateButton: "Integre IA à sua loja",
+  kpis: [
+    { title: "Vendas Totais", value: "$127,450", change: "+12.5%" },
+    { title: "Conversão com IA", value: "+18.3%", change: "vs mês anterior" },
+    { title: "Produtos Recomendados", value: "1.247", change: "+34.2%" },
+    { title: "ROI da Automação", value: "+245%", change: "Economia anual" },
+  ],
+  charts: {
+    sales: {
+      title: "Vendas Otimizadas por IA",
+      subtitle: "Comparação dos últimos 6 meses",
+      withAI: "Com IA",
+      withoutAI: "Sem IA",
+    },
+    conversionSources: {
+      title: "Fontes de Conversão com IA",
+      subtitle: "Distribuição por canal",
+      label: "Conversão",
+    },
+    funnel: {
+      title: "Funil de Conversão com IA",
+      subtitle: "Otimização em cada etapa da jornada do cliente",
+      percentageSuffix: "% conversão",
+    },
+    products: {
+      title: "Performance de Produtos com IA",
+      subtitle: "Top 5 produtos - Melhoria média: +78%",
+      before: "Antes",
+      after: "Com IA",
+    },
+  },
+  data: {
+    salesData: [
+      { month: "Jan", withAI: 89, withoutAI: 67 },
+      { month: "Fev", withAI: 95, withoutAI: 71 },
+      { month: "Mar", withAI: 108, withoutAI: 78 },
+      { month: "Abr", withAI: 118, withoutAI: 82 },
+      { month: "Mai", withAI: 125, withoutAI: 85 },
+      { month: "Jun", withAI: 127, withoutAI: 87 },
+    ],
+    conversionSources: [
+      { name: "Recomendações Personalizadas", value: 45, color: "#3B82F6" },
+      { name: "Chatbot de IA", value: 28, color: "#10B981" },
+      { name: "Preços Dinâmicos", value: 18, color: "#F59E0B" },
+      { name: "E-mail Marketing com IA", value: 9, color: "#8B5CF6" },
+    ],
+    funnelData: [
+      { name: "Visitantes", value: 12450, iconKey: "Users", color: "#E5E7EB" },
+      { name: "Produtos Visualizados", value: 8920, percentage: 72, iconKey: "Eye", color: "#D1D5DB" },
+      { name: "Recomendação de IA", value: 5680, percentage: 64, iconKey: "Brain", color: "#9CA3AF" },
+      { name: "Carrinho", value: 2840, percentage: 50, iconKey: "ShoppingCart", color: "#6B7280" },
+      { name: "Compra", value: 1562, percentage: 55, iconKey: "CheckCircle", color: "#3B82F6" },
+    ],
+  },
+  cta: {
+    title:"Pronto para esses resultados?",
+    p: "Este painel mostra o potencial real da IA no seu eCommerce. Implemente nossos agentes inteligentes e comece a ver resultados semelhantes no seu negócio.",
+    btn: "Solicitar Demonstração Personalizada"
+}
+
+}
+,
+
 calculator:{
    header: {
     title: "Calculadora de Impacto da IA",

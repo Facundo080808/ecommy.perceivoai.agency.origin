@@ -535,24 +535,99 @@ cta_section: {
     productImagePlaceholder: "Image"
   }
 },
-calculator:{
-   header: {
-    title: "AI Impact Calculator",
-    description:
-      "Discover how much value an AI agent can generate for your eCommerce. Calculations based on real industry data.",
-    tags: [
-      { label: "+12% conversion improvement", highlight: "+12%" },
-      { label: "66% tickets automated", highlight: "66%" },
-      { label: "+5% increase in AOV", highlight: "+5%" },
+  AiDashboardContent: {
+  sectionTitle: "AI Dashboard for eCommerce",
+  sectionDescription:
+    "Visualize the real impact of artificial intelligence on your business with advanced metrics and predictive analytics.",
+  sectionRealtime: "Data updated in real time",
+  dashboardTitle: "Analytics Dashboard",
+  dashboardSubtitle: "Powered by AI",
+  timeframeOptions: {
+    "1M": "1 Month",
+    "3M": "3 Months",
+    "6M": "6 Months",
+    "1Y": "1 Year",
+  },
+  integrateButton: "Integrate AI into your store",
+  kpis: [
+    { title: "Total Sales", value: "$127,450", change: "+12.5%" },
+    { title: "AI Conversion", value: "+18.3%", change: "vs last month" },
+    { title: "Recommended Products", value: "1,247", change: "+34.2%" },
+    { title: "Automation ROI", value: "+245%", change: "Annual savings" },
+  ],
+  charts: {
+    sales: {
+      title: "AI-Optimized Sales",
+      subtitle: "Comparison of the last 6 months",
+      withAI: "With AI",
+      withoutAI: "Without AI",
+    },
+    conversionSources: {
+      title: "AI Conversion Sources",
+      subtitle: "Distribution by channel",
+      label: "Conversion",
+    },
+    funnel: {
+      title: "AI Conversion Funnel",
+      subtitle: "Optimization at each stage of the customer journey",
+      percentageSuffix: "% conversion",
+    },
+    products: {
+      title: "Product Performance with AI",
+      subtitle: "Top 5 products - Average improvement: +78%",
+      before: "Before",
+      after: "With AI",
+    },
+  },
+  data: {
+    salesData: [
+      { month: "Jan", withAI: 89, withoutAI: 67 },
+      { month: "Feb", withAI: 95, withoutAI: 71 },
+      { month: "Mar", withAI: 108, withoutAI: 78 },
+      { month: "Apr", withAI: 118, withoutAI: 82 },
+      { month: "May", withAI: 125, withoutAI: 85 },
+      { month: "Jun", withAI: 127, withoutAI: 87 },
+    ],
+    conversionSources: [
+      { name: "Personalized Recommendations", value: 45, color: "#3B82F6" },
+      { name: "AI Chatbot", value: 28, color: "#10B981" },
+      { name: "Dynamic Pricing", value: 18, color: "#F59E0B" },
+      { name: "AI Email Marketing", value: 9, color: "#8B5CF6" },
+    ],
+    funnelData: [
+      { name: "Visitors", value: 12450, iconKey: "Users", color: "#E5E7EB" },
+      { name: "Products Viewed", value: 8920, percentage: 72, iconKey: "Eye", color: "#D1D5DB" },
+      { name: "AI Recommendation", value: 5680, percentage: 64, iconKey: "Brain", color: "#9CA3AF" },
+      { name: "Cart", value: 2840, percentage: 50, iconKey: "ShoppingCart", color: "#6B7280" },
+      { name: "Purchase", value: 1562, percentage: 55, iconKey: "CheckCircle", color: "#3B82F6" },
     ],
   },
-  chartData: {
-  ingresosExtra: "Extra Revenue",
-  ahorroSoporte: "Support Savings",
-  mejoraConversion: "Conversion Improvement",
-  aumentoAOV: "AOV Increase",
+  cta: {
+  title: "Ready for these results?",
+  p: "This dashboard shows the real potential of AI in your eCommerce. Implement our intelligent agents and start seeing similar results in your business.",
+  btn: "Request Personalized Demo"
+}
+
 }
 ,
+  calculator:{
+    header: {
+      title: "AI Impact Calculator",
+      description:
+        "Discover how much value an AI agent can generate for your eCommerce. Calculations based on real industry data.",
+      tags: [
+        { label: "+12% conversion improvement", highlight: "+12%" },
+        { label: "66% tickets automated", highlight: "66%" },
+        { label: "+5% increase in AOV", highlight: "+5%" },
+      ],
+    },
+    chartData: {
+    ingresosExtra: "Extra Revenue",
+    ahorroSoporte: "Support Savings",
+    mejoraConversion: "Conversion Improvement",
+    aumentoAOV: "AOV Increase",
+  }
+  ,
   form: {
     title: "Your eCommerce Data",
     traffic: {
