@@ -34,29 +34,31 @@ import {
 } from "recharts"
 import { useI18n } from "@/lib/i18n/context"
 
-// Datos simulados para los gráficos
-const salesData = [
-  { month: "Ene", withAI: 89, withoutAI: 67 },
-  { month: "Feb", withAI: 95, withoutAI: 71 },
-  { month: "Mar", withAI: 108, withoutAI: 78 },
-  { month: "Abr", withAI: 118, withoutAI: 82 },
-  { month: "May", withAI: 125, withoutAI: 85 },
-  { month: "Jun", withAI: 127, withoutAI: 87 },
-]
+export function AIDashboardDemo() {
+  // Datos simulados para los gráficos
+  const { t } = useI18n();
+  const salesData = [
+    { month: "Ene", withAI: 89, withoutAI: 67 },
+    { month: "Feb", withAI: 95, withoutAI: 71 },
+    { month: "Mar", withAI: 108, withoutAI: 78 },
+    { month: "Abr", withAI: 118, withoutAI: 82 },
+    { month: "May", withAI: 125, withoutAI: 85 },
+    { month: "Jun", withAI: 127, withoutAI: 87 },
+  ]
 
 const conversionSources = [
-  { name: "Recomendaciones Personalizadas", value: 45, color: "#3B82F6" },
-  { name: "Chatbot IA", value: 28, color: "#10B981" },
-  { name: "Precios Dinámicos", value: 18, color: "#F59E0B" },
-  { name: "Email Marketing IA", value: 9, color: "#8B5CF6" },
+  { name: t("AiDashboardContent.data.conversionSources[0].name"), value: 45, color: "#3B82F6" },
+  { name: t("AiDashboardContent.data.conversionSources[1].name"), value: 28, color: "#10B981" },
+  { name: t("AiDashboardContent.data.conversionSources[2].name"), value: 18, color: "#F59E0B" },
+  { name: t("AiDashboardContent.data.conversionSources[3].name"), value: 9, color: "#8B5CF6" },
 ]
 
 const funnelData = [
-  { name: "Visitantes", value: 12450, icon: Users, color: "#E5E7EB" },
-  { name: "Productos Vistos", value: 8920, percentage: 72, icon: Eye, color: "#D1D5DB" },
-  { name: "Recomendación IA", value: 5680, percentage: 64, icon: Brain, color: "#9CA3AF" },
-  { name: "Carrito", value: 2840, percentage: 50, icon: ShoppingCart, color: "#6B7280" },
-  { name: "Compra", value: 1562, percentage: 55, icon: CheckCircle, color: "#3B82F6" },
+  { name: t("AiDashboardContent.data.funnelData[0].name"), value: 12450, icon: Users, color: "#E5E7EB" },
+  { name: t("AiDashboardContent.data.funnelData[1].name"), value: 8920, percentage: 72, icon: Eye, color: "#D1D5DB" },
+  { name: t("AiDashboardContent.data.funnelData[2].name"), value: 5680, percentage: 64, icon: Brain, color: "#9CA3AF" },
+  { name: t("AiDashboardContent.data.funnelData[3].name"), value: 2840, percentage: 50, icon: ShoppingCart, color: "#6B7280" },
+  { name: t("AiDashboardContent.data.funnelData[4].name"), value: 1562, percentage: 55, icon: CheckCircle, color: "#3B82F6" },
 ]
 
 const productPerformance = [
@@ -67,8 +69,6 @@ const productPerformance = [
   { name: "Smartwatch", before: 6, after: 13 },
 ]
 
-export function AIDashboardDemo() {
-  const { t } = useI18n();
   const [selectedTimeframe, setSelectedTimeframe] = useState("6M")
 
   const scrollToContact = () => {
