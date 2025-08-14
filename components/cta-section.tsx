@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { MessageSquare, Smartphone, Laptop, ShoppingBag, ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n/context"
 import React from "react"
+import Link from "next/link"
 
 export function CTASection() {
   const { t } = useI18n()
@@ -80,29 +81,33 @@ export function CTASection() {
                    
                 >
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 relative overflow-hidden group">
-                      <span className="relative z-10 flex items-center gap-2">
-                        {t("cta_section.button")}
-                        <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                      <motion.span
-                        className="absolute inset-0 bg-blue-500"
-                        initial={{ x: "100%" }}
-                        whileHover={{ x: "0%" }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </Button>
+                    <Link href="#contacto">
+                      <Button size="lg" className="bg-blue-600 hover:bg-blue-700 relative overflow-hidden group">
+                        <span className="relative z-10 flex items-center gap-2">
+                          {t("cta_section.button")}
+                          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                        <motion.span
+                          className="absolute inset-0 bg-blue-500"
+                          initial={{ x: "100%" }}
+                          whileHover={{ x: "0%" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </Button>
+                    </Link>
                   </motion.div>
                   <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transition={{ duration: 0.2 }}>
-                    <Button size="lg" variant="outline" className="relative overflow-hidden group">
-                      <span className="relative z-10">{t("cta_section.demoButton")}</span>
-                      <motion.span
-                        className="absolute inset-0 bg-white/10"
-                        initial={{ x: "-100%" }}
-                        whileHover={{ x: "0%" }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </Button>
+                    <Link href="#contacto">
+                      <Button size="lg" variant="outline" className="relative overflow-hidden group">
+                        <span className="relative z-10" >{t("cta_section.demoButton")}</span>
+                        <motion.span
+                          className="absolute inset-0 bg-white/10"
+                          initial={{ x: "-100%" }}
+                          whileHover={{ x: "0%" }}
+                          transition={{ duration: 0.3 }}
+                        />
+                      </Button>
+                    </Link>
                   </motion.div>
                 </motion.div>
               </div>
@@ -181,14 +186,16 @@ export function CTASection() {
                     </div>
 
                     <div className="pt-2 border-t border-gray-800 flex gap-2">
+                     
                       <input
                         type="text"
                         placeholder={t("cta_section.inputPlaceholder")}
                         className="flex-1 bg-gray-800 border-none rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-blue-500"
                       />
-                      <Button size="sm" className="bg-blue-600 hover:bg-blue-700 h-8 w-8 p-0">
+                         <Button size="sm" className="bg-blue-600 hover:bg-blue-700 h-8 w-8 p-0">
                         <ArrowRight className="h-4 w-4" />
                       </Button>
+                     
                     </div>
                   </div>
                 </div>

@@ -29,7 +29,7 @@ export function Header() {
           transition={{ delay: 0.1, duration: 0.5 }}
         >
           <MessageSquare className="h-6 w-6 text-blue-500" />
-          <span className="text-xl font-bold">AI eCommerce</span>
+          <span  className="text-xl font-bold">AI eCommerce</span>
         </motion.div>
 
         {/* Desktop Navigation */}
@@ -49,7 +49,7 @@ export function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
             >
-              <Link
+              <Link suppressHydrationWarning
                 href={item.href}
                 className="text-sm text-gray-300 hover:text-white transition-colors"
                 onClick={(e) => {
@@ -81,14 +81,16 @@ export function Header() {
         >
           <LanguageSwitcher />
 
-          <div className="hidden md:flex items-center gap-2">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <div className="hidden md:flex items-center gap-2 m-1">
+            {/* <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button variant="outline" className="hidden md:inline-flex">
                 {t("header.iniciarSesion")}
               </Button>
-            </motion.div>
+            </motion.div> */}
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button className="bg-blue-600 hover:bg-blue-700">{t("header.solicitarDemo")}</Button>
+              <Link href={"#contacto"}>
+                <Button className="bg-blue-600 hover:bg-blue-700">{t("header.solicitarDemo")}</Button>
+              </Link>
             </motion.div>
           </div>
 
@@ -124,43 +126,47 @@ export function Header() {
               { name: t("header.contacto"), href: "#contacto" },
             ].map((item) => (
               <Link
+              suppressHydrationWarning
                 key={item.name}
                 href={item.href}
                 className="text-sm text-gray-300 hover:text-white transition-colors py-2"
-                onClick={(e) => {
-                  e.preventDefault()
-                  setMobileMenuOpen(false)
+                // onClick={(e) => {
+                //   e.preventDefault()
+                //   setMobileMenuOpen(false)
 
-                  // Añadir un pequeño retraso para el scroll suave
-                  setTimeout(() => {
-                    const targetElement = document.querySelector(item.href)
-                    if (targetElement) {
-                      const headerOffset = 80
-                      const elementPosition = targetElement.getBoundingClientRect().top
-                      const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+                //   // Añadir un pequeño retraso para el scroll suave
+                //   setTimeout(() => {
+                //     const targetElement = document.querySelector(item.href)
+                //     if (targetElement) {
+                //       const headerOffset = 80
+                //       const elementPosition = targetElement.getBoundingClientRect().top
+                //       const offsetPosition = elementPosition + window.pageYOffset - headerOffset
 
-                      window.scrollTo({
-                        top: offsetPosition,
-                        behavior: "smooth",
-                      })
-                    }
-                  }, 100)
-                }}
+                //       window.scrollTo({
+                //         top: offsetPosition,
+                //         behavior: "smooth",
+                //       })
+                //     }
+                //   }, 100)
+                // }}
               >
                 {item.name}
               </Link>
             ))}
             <div className="flex flex-col gap-2 pt-4 border-t border-gray-800">
-              <Button variant="outline" className="w-full justify-center">
+              {/* <Button variant="outline" className="w-full justify-center">
                 {t("header.iniciarSesion")}
-              </Button>
-              <Button className="w-full justify-center bg-blue-600 hover:bg-blue-700">
-                {t("header.solicitarDemo")}
-              </Button>
+              </Button> */}
+              <Link href={"#contacto"}>  
+                <Button className="w-full justify-center bg-blue-600 hover:bg-blue-700">
+                  {t("header.solicitarDemo")}
+                </Button>
+              </Link>
             </div>
           </nav>
         </div>
       </motion.div>
     </motion.header>
   )
+  
 }

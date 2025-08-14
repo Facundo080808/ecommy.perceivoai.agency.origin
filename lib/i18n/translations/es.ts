@@ -19,8 +19,8 @@ export const es : LocaleLanguaje= {
     featuresButton: "Ver funcionalidades",
     stats: [
       { icon: "TrendingUp", value: "35%", label: "Incremento en conversiones" },
-      { icon: "Zap", value: "24/7", label: "Soporte automatizado" },
-      { icon: "Brain", value: "500+", label: "Tiendas activas" },
+      { icon: "Zap", value: "09:00-18:30(-3 GTM)", label: "Soporte automatizado" },
+      { icon: "Brain", value: "1+", label: "Tiendas activas" },
     ],
     trust: [
       { label: "Listo para empresas", color: "green" },
@@ -443,8 +443,8 @@ secondary_hero_section: {
   stats: [
     { value: "98%", label: "Satisfacción" },
     { value: "35%", label: "Aumento en conversiones" },
-    { value: "24/7", label: "Soporte disponible" },
-    { value: "500+", label: "Clientes activos" },
+    { value: "09:00-18:30(-3 GTM)", label: "Soporte tecnico" },
+    { value: "1+", label: "Clientes activos" },
   ],
 },
   contact: {
@@ -502,7 +502,7 @@ secondary_hero_section: {
 },
 
 AiDashboardContent:  {
-  sectionTitle: "Dashboard de IA para eCommerce",
+  sectionTitle: "Dashboard de Data Science para eCommerce",
   sectionDescription:
     "Visualiza el impacto real de la inteligencia artificial en tu negocio con métricas avanzadas y análisis predictivo.",
   sectionRealtime: "Datos actualizados en tiempo real",

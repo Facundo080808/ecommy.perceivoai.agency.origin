@@ -7,6 +7,8 @@ import { motion } from "framer-motion"
 import { useI18n } from "@/lib/i18n/context"
 import { ArrowRight, Sparkles, Zap, TrendingUp, Brain } from "lucide-react"
 import { useEffect, useState } from "react"
+import Link from "next/link"
+
 
 export function HeroSection() {
   const { t } = useI18n()
@@ -147,6 +149,7 @@ export function HeroSection() {
               </h1>
 
               <motion.div
+              suppressHydrationWarning
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: titleComplete ? 1 : 0, y: titleComplete ? 0 : 20 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
@@ -157,31 +160,32 @@ export function HeroSection() {
             </div>
 
             {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.5 }}
-              className="grid grid-cols-3 gap-6"
-            >
-              {[
-                { icon: TrendingUp, value: "35%", label: "Conversion Boost" },
-                { icon: Zap, value: "24/7", label: "AI Support" },
-                { icon: Brain, value: "500+", label: "Active Stores" },
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="text-center"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
-                >
-                  <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-4 border border-blue-500/30 backdrop-blur-sm">
-                    <stat.icon className="h-6 w-6 text-blue-400 mx-auto mb-2" />
-                    <div className="text-2xl font-bold text-white">{stat.value}</div>
-                    <div className="text-sm text-gray-400">{stat.label}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.5 }}
+                className="grid grid-cols-3 gap-6"
+              >
+                {[
+                  { icon: TrendingUp, value: "35%", label: "Conversion Boost" },
+                  { icon: Zap, value: t("hero_section.stats[1].value"), label: "AI Support" },
+                  { icon: Brain, value: t("hero_section.stats[2].value"), label: "Active Stores" },
+                ].map((stat, index) => (
+                  <motion.div
+                    key={index}
+                    className="text-center"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    <div className="bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl p-4 border border-blue-500/30 backdrop-blur-sm flex flex-col justify-center min-h-[140px]">
+                      <stat.icon className="h-6 w-6 text-blue-400 mx-auto mb-2" />
+                      <div className="text-2xl font-bold text-white" suppressHydrationWarning>{stat.value}</div>
+                      <div className="text-sm text-gray-400">
+                        {stat.label}</div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
 
             {/* CTA Buttons */}
             <motion.div
@@ -191,14 +195,16 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative group">
-                <Button
+                <Link href="#contacto">
+                  <Button
                   size="lg"
                   // onClick={scrollToContact}
                   className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-0 relative overflow-hidden group px-8 py-4 text-lg"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
+                  <span className="relative z-10 flex items-center gap-2" suppressHydrationWarning>
                     {t("hero_section.demoButton")}
                     <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                    
                   </span>
                   <motion.div
                     className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600"
@@ -206,7 +212,8 @@ export function HeroSection() {
                     whileHover={{ x: "0%" }}
                     transition={{ duration: 0.3 }}
                   />
-                </Button>
+                  </Button>
+                </Link>
                 <motion.div
                   className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 blur-lg opacity-50"
                   animate={{ scale: [1, 1.05, 1] }}

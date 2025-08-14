@@ -19,8 +19,8 @@ header: {
   featuresButton: "Ver funcionalidades",
   stats: [
     { icon: "TrendingUp", value: "35%", label: "Aumento nas conversões" },
-    { icon: "Zap", value: "24/7", label: "Suporte automatizado" },
-    { icon: "Brain", value: "500+", label: "Lojas ativas" },
+    { icon: "Zap", value: "09:00-18:30(-3 GTM)", label: "Suporte automatizado" },
+    { icon: "Brain", value: "1+", label: "Lojas ativas" },
   ],
   trust: [
     { label: "Pronto para empresas", color: "green" },
@@ -443,8 +443,8 @@ secondary_hero_section: {
   stats: [
     { value: "98%", label: "Satisfação" },
     { value: "35%", label: "Aumento nas conversões" },
-    { value: "24/7", label: "Suporte disponível" },
-    { value: "500+", label: "Clientes ativos" },
+    { value: "09:00-18:30(-3 GTM)", label: "Suporte disponível" },
+    { value: "1+", label: "Clientes ativos" },
   ],
 },
 contact: {
@@ -534,7 +534,7 @@ contact: {
 },
 
  AiDashboardContent : {
-  sectionTitle: "Painel de IA para eCommerce",
+  sectionTitle: "Painel de Data Science para eCommerce",
   sectionDescription:
     "Visualize o impacto real da inteligência artificial no seu negócio com métricas avançadas e análise preditiva.",
   sectionRealtime: "Dados atualizados em tempo real",

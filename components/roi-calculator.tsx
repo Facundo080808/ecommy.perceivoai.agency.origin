@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
@@ -10,6 +11,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Calculator, TrendingUp, DollarSign, Users, Zap, ArrowRight, Target, BarChart3 } from "lucide-react"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from "recharts"
 import { useI18n } from "@/lib/i18n/context"
+import Link from "next/link"
 
 interface CalculatorInputs {
   traffic: number
@@ -478,22 +480,24 @@ export function ROICalculator() {
                     transition={{ delay: 1 }}
                     className="text-center"
                   >
-                    <Button
-                      onClick={scrollToContact}
-                      size="lg"
-                      className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
-                    >
-                      <span className="relative z-10 flex items-center gap-2">
-                        {t("calculator.cta.button")}
-                        <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                      </span>
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600"
-                        initial={{ x: "100%" }}
-                        whileHover={{ x: "0%" }}
-                        transition={{ duration: 0.3 }}
-                      />
-                    </Button>
+                    <Link href="#contacto">
+                            <Button
+                              onClick={scrollToContact}
+                              size="lg"
+                              className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
+                            >
+                              <span className="relative z-10 flex items-center gap-2">
+                                {t("calculator.cta.button")}
+                                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                              </span>
+                              <motion.div
+                                className="absolute inset-0 bg-gradient-to-r from-green-600 to-blue-600"
+                                initial={{ x: "100%" }}
+                                whileHover={{ x: "0%" }}
+                                transition={{ duration: 0.3 }}
+                              />
+                            </Button>
+                    </Link>
                     <p className="text-gray-400 text-sm mt-4">
                      {t("calculator.cta.disclaimer")}
                     </p>

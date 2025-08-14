@@ -32,8 +32,9 @@ export function LanguageSwitcher() {
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="sm" className="h-8 gap-1 px-2">
           <Globe className="h-4 w-4" />
-          <span className="hidden md:inline-flex">{currentLanguage.flag}</span>
+          <span className="hidden md:inline-flex" suppressHydrationWarning>{currentLanguage.flag}</span>
           <motion.span
+          suppressHydrationWarning
             key={currentLanguage.code}
             initial={{ y: 10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

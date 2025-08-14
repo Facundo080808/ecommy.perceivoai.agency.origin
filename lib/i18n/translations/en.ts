@@ -21,8 +21,8 @@ export const en : LocaleLanguaje = {
   featuresButton: "View features",
   stats: [
     { icon: "TrendingUp", value: "35%", label: "Increase in conversions" },
-    { icon: "Zap", value: "24/7", label: "Automated support" },
-    { icon: "Brain", value: "500+", label: "Active stores" },
+    { icon: "Zap", value: "09:00-18:30 (-3 GTM)", label: "Automated support" },
+    { icon: "Brain", value: "1+", label: "Active stores" },
   ],
   trust: [
     { label: "Enterprise ready", color: "green" },
@@ -446,8 +446,8 @@ secondary_hero_section: {
   stats: [
     { value: "98%", label: "Satisfaction" },
     { value: "35%", label: "Increase in conversions" },
-    { value: "24/7", label: "Support available" },
-    { value: "500+", label: "Active clients" },
+    { value: "09:00 to 18:30 (-3 GMT)", label: "Support available" },
+    { value: "1+", label: "Active clients" },
   ],
 },
 contact: {
@@ -536,7 +536,7 @@ cta_section: {
   }
 },
   AiDashboardContent: {
-  sectionTitle: "AI Dashboard for eCommerce",
+  sectionTitle: "Data Science Dashboard for eCommerce",
   sectionDescription:
     "Visualize the real impact of artificial intelligence on your business with advanced metrics and predictive analytics.",
   sectionRealtime: "Data updated in real time",

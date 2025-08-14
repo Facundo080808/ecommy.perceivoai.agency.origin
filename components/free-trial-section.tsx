@@ -5,6 +5,8 @@ import { Card } from "@/components/ui/card"
 import { motion } from "framer-motion"
 import { Clock, CheckCircle, Zap, Shield, ArrowRight, Sparkles, Code, BarChart3, Truck } from "lucide-react"
 import { useEffect, useState } from "react"
+import Link from "next/link"
+
 
 export function FreeTrialSection() {
   const { t } = useI18n()
@@ -93,7 +95,7 @@ export function FreeTrialSection() {
               className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-green-500/30 rounded-full px-4 py-2 mb-6"
             >
               <Sparkles className="h-4 w-4 text-green-400" />
-              <span className="text-green-400 font-medium">{t("free_trial_section.badge")}</span>
+              <span className="text-green-400 font-medium" suppressHydrationWarning>{t("free_trial_section.badge")}</span>
               <motion.div
                 className="w-2 h-2 bg-green-400 rounded-full"
                 animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
@@ -102,7 +104,7 @@ export function FreeTrialSection() {
             </motion.div>
 
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent" suppressHydrationWarning>
                 {t("free_trial_section.heading.main")}
               </span>
               <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent ml-3">
@@ -242,13 +244,14 @@ export function FreeTrialSection() {
                     onHoverStart={() => setIsHovered(true)}
                     onHoverEnd={() => setIsHovered(false)}
                   >
-                    <Button
+                    <Link href={"#contacto"} >
+                      <Button
                       // onClick={scrollToContact}
                       size="lg"
                       className="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-4 text-lg relative overflow-hidden group"
                     >
                       <span className="relative z-10 flex items-center justify-center gap-2">
-                        {t("free_trial_section.cta_button")}
+                        {t("free_trial_section.cta_button") }
                         <ArrowRight className={`h-5 w-5 transition-transform ${isHovered ? "translate-x-1" : ""}`} />
                       </span>
                       <motion.div
@@ -258,6 +261,7 @@ export function FreeTrialSection() {
                         transition={{ duration: 0.3 }}
                       />
                     </Button>
+                    </Link>
                   </motion.div>
 
                   <p className="text-center text-sm text-gray-500 mt-4">

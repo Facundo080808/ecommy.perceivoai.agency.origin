@@ -1,6 +1,5 @@
 "use client"
 
-
 import { useState } from "react"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -33,6 +32,7 @@ import {
   Bar,
 } from "recharts"
 import { useI18n } from "@/lib/i18n/context"
+import Link from "next/link"
 
 export function AIDashboardDemo() {
   // Datos simulados para los gráficos
@@ -147,10 +147,12 @@ const productPerformance = [
                     <option value="1Y">{t("AiDashboardContent.timeframeOptions.1Y")}</option>
                   </select>
                 </div>
-                <Button onClick={scrollToContact} size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <Target className="h-4 w-4 mr-2" />
-                  {t("AiDashboardContent.integrateButton")}
-                </Button>
+                <Link href="#contacto">  
+                  <Button onClick={scrollToContact} size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                    <Target className="h-4 w-4 mr-2" />
+                    {t("AiDashboardContent.integrateButton")}
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

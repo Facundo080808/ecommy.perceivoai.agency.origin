@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, MessageSquare, ShieldCheck, Zap, Users, Code, BarChart3, Truck } from "lucide-react"
 import { motion } from "framer-motion"
 import { useI18n } from "@/lib/i18n/context"
+import Link from "next/link"
+
 
 export function SecondaryHeroSection() {
   const {t} = useI18n()
@@ -77,7 +79,8 @@ export function SecondaryHeroSection() {
             className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
+             <Link href="#contacto" >
+                 <Button
                 // onClick={scrollToContact}
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-8 py-4 text-lg font-semibold relative overflow-hidden group"
@@ -92,18 +95,21 @@ export function SecondaryHeroSection() {
                   whileHover={{ x: "0%" }}
                   transition={{ duration: 0.3 }}
                 />
-              </Button>
+                </Button>
+             </Link>
             </motion.div>
 
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button
+              <Link href="#contacto" >
+                <Button
                 // onClick={scrollToContact}
                 size="lg"
                 variant="outline"
                 className="border-2 border-gray-600 text-white hover:bg-gray-800/50 backdrop-blur-sm px-8 py-4 text-lg bg-transparent"
               >
                 { t("secondary_hero_section.ctaSecondary.text")}
-              </Button>
+                </Button>
+              </Link>
             </motion.div>
           </motion.div>
 
@@ -164,8 +170,8 @@ export function SecondaryHeroSection() {
             {[
               { value: "98%", label: t("secondary_hero_section.stats[0].label") },
               { value: "35%", label:  t("secondary_hero_section.stats[1].label")  },
-              { value: "24/7", label:  t("secondary_hero_section.stats[2].label")  },
-              { value: "500+", label:  t("secondary_hero_section.stats[3].label")  },
+              { value: t("secondary_hero_section.stats[2].value"), label:  t("secondary_hero_section.stats[2].label")  },
+              { value: t("secondary_hero_section.stats[3].value") , label:  t("secondary_hero_section.stats[3].label")  },
             ].map((stat, index) => (
               <motion.div
                 key={index}
