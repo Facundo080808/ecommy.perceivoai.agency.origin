@@ -192,13 +192,13 @@ export function ROICalculator() {
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
             <div className="bg-blue-500/10 border border-blue-500/30 rounded-full px-3 py-1">
-              <span className="text-blue-400 font-medium">+12%</span> {t("calculator.tags[0].label")}
+              <span className="text-blue-400 font-medium">+12%</span> {t("calculator.header.tags[0].label")}
             </div>
             <div className="bg-green-500/10 border border-green-500/30 rounded-full px-3 py-1">
-              <span className="text-green-400 font-medium">66%</span> {t("calculator.tags[1].label")}
+              <span className="text-green-400 font-medium">66%</span> {t("calculator.header.tags[1].label")}
             </div>
             <div className="bg-purple-500/10 border border-purple-500/30 rounded-full px-3 py-1">
-              <span className="text-purple-400 font-medium">+5%</span> {t("calculator.tags[2].label")}
+              <span className="text-purple-400 font-medium">+5%</span> {t("calculator.header. tags[2].label")}
             </div>
           </div>
         </motion.div>
